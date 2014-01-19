@@ -1,0 +1,30 @@
+//
+// Prefix header for all source files of the 'What'sThat' target in the 'What'sThat' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+	#import "AppDelegate.h" 
+	#import "Constant.h"
+	#import "databaseFile.h"
+    #import "RageIAPHelper.h"
+#import "SVProgressHUD.h"
+#import "ShareKitFile.h"
+#import "LevelViewController.h"
+#import "BDMultiDownloader.h"
+#import "DocDirectory.h"
+
+AppDelegate *appDelegate;
+databaseFile *objDataBase;
+DocDirectory *objDocDir;
+ShareKitFile *objShareKit;
+
+LevelViewController *objLevel;
+#endif
