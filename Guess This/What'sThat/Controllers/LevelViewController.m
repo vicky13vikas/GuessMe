@@ -553,7 +553,7 @@
 -(NSMutableDictionary *)setUpFaceBookDictionary
 {
     NSMutableDictionary *dicParameters = [[NSMutableDictionary alloc]init];
-    [dicParameters setObject:@"Help me out to Guess This image." forKey:@"message"];
+    [dicParameters setObject:@"Does anyone know what this picture is? I'm playing Guess this Image on iOS! goo.gl/Z1tukU" forKey:@"message"];
     [dicParameters setObject:questionImv.image forKey:@"picture"];
     return dicParameters;
 }
