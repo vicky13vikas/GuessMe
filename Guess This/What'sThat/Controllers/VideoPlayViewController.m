@@ -20,9 +20,7 @@
     
     [[UIApplication sharedApplication]setStatusBarHidden:NO];
 //    [[UIApplication sharedApplication]setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
-    
-    [self eventVideoPlay];
-    
+  
     NSLog(@"video controller view did load");
 }
 
@@ -31,24 +29,27 @@
     [super viewDidUnload];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+  [self goToSplashView];
+}
+
 #pragma mark - Interface Orientation Methods
 
 -(BOOL) shouldAutorotate
 {
-    if(appDelegate.window.hidden == FALSE)
-        return YES;
-    else
-        return NO;
+     return NO;
 }
 
 -(NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskLandscapeLeft;
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) interfaceOrientation
 {
-	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+	return  YES;
 }
 
 
