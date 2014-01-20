@@ -15,6 +15,7 @@
 #import "HomeViewController.h"
 #import "VideoPlayViewController.h"
 #import "LevelViewController.h"
+#import "TestFlight.h"
 
 #define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"
 
@@ -67,7 +68,9 @@
 //    [self.window addSubview:videoPlayVC.view];
     NSLog(@"before calling video play 2");
     [self.window makeKeyAndVisible];
-
+    
+    [TestFlight takeOff:@"beb9bf33-2019-401b-a03f-093504ef93b7"];
+    
     return YES;
 }
 
@@ -2024,7 +2027,7 @@
   interstitial_.delegate = self;
   interstitial_.adUnitID = ADMOB_UNIT_ID;
   GADRequest *request = [GADRequest request];
-  request.testDevices = [NSArray arrayWithObjects: GAD_SIMULATOR_ID, nil];
+  request.testDevices = [NSArray arrayWithObjects: GAD_SIMULATOR_ID, @"FFFFFFFF4707154B7B294E08B721E26FF479598C", @"347bbfbd16db2b12978e9f5ed6c90e7441995c98", nil];
   [interstitial_ loadRequest:request];
 }
 
