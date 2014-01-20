@@ -16,6 +16,8 @@
 #import "VideoPlayViewController.h"
 #import "LevelViewController.h"
 
+#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"
+
 @implementation AppDelegate
 @synthesize window;
 @synthesize navigationController,homeVC;
@@ -171,6 +173,8 @@
     isActivityIndicatorSeen = TRUE;
     objDocDir = [[DocDirectory alloc]init];
     objDataBase = [[databaseFile alloc]init];
+  
+    isAdMobStarted = NO;
 }
 -(void)initializingFunctionalitiesCalled
 {
@@ -1835,6 +1839,12 @@
     {
         NSLog(@"enable buttons Home controller object not found");
     }
+  
+  if(!isAdMobStarted)
+  {
+    isAdMobStarted = YES;
+    [self startFetchingAds];
+  }
 }
 -(void)disableHomeButtons
 {
@@ -2006,6 +2016,37 @@
 //            break;
 //        }
 //    }
+}
+
+-(void)fetchAds
+{
+  interstitial_ = [[GADInterstitial alloc] init];
+  interstitial_.delegate = self;
+  interstitial_.adUnitID = ADMOB_UNIT_ID;
+  GADRequest *request = [GADRequest request];
+  request.testDevices = [NSArray arrayWithObjects: GAD_SIMULATOR_ID, nil];
+  [interstitial_ loadRequest:request];
+}
+
+-(void)startFetchingAds
+{
+  [self fetchAds];
+  [NSTimer scheduledTimerWithTimeInterval:180.0
+                                   target:self
+                                 selector:@selector(fetchAds)
+                                 userInfo:nil
+                                  repeats:YES];
+  
+ }
+
+- (void)interstitial:(GADInterstitial *)interstitial
+didFailToReceiveAdWithError:(GADRequestError *)error {
+  // Alert the error.
+  
+}
+
+- (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
+  [interstitial presentFromRootViewController:[self.navigationController topViewController]];
 }
 
 @end

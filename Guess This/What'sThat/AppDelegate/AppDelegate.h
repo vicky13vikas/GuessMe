@@ -12,6 +12,8 @@
 #import "BDMultiDownloader.h"
 #import "SplashViewController.h"
 #import "AudioPlay.h"
+#import "GADInterstitial.h"
+
 
 typedef enum
 {
@@ -22,7 +24,7 @@ typedef enum
 
 @class HomeViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CallWebServiceAsyncDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CallWebServiceAsyncDelegate,GADInterstitialDelegate>
 {
     IBOutlet UIWindow *window;
     IBOutlet UIWindow *windowControllers;
@@ -96,6 +98,9 @@ typedef enum
     BOOL isInAppHUD;
     BOOL isInFacebookSharing;
     BOOL isFBLike;//for not showing activity indicator while fb like
+  
+    BOOL isAdMobStarted;
+    GADInterstitial *interstitial_;
 }
 @property (retain, nonatomic)  NSMutableArray *imageQueue;
 @property (retain, nonatomic) NSMutableArray *arrInitialSetQuestionInfo;

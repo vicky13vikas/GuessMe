@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092BCEB7188CF3040048FBBE /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 092BCEB5188CF3040048FBBE /* libGoogleAdMobAds.a */; };
+		092BCEB8188CF3040048FBBE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 092BCEB6188CF3040048FBBE /* README.txt */; };
 		380D62A8176096FD00DAFD00 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380D62A7176096FD00DAFD00 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		380D62AD1760972200DAFD00 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 380D62AA1760972200DAFD00 /* IAPHelper.m */; };
 		380D62AE1760972200DAFD00 /* RageIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 380D62AC1760972200DAFD00 /* RageIAPHelper.m */; };
@@ -304,6 +306,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092BCEAC188CF3040048FBBE /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		092BCEAD188CF3040048FBBE /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		092BCEAE188CF3040048FBBE /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		092BCEAF188CF3040048FBBE /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		092BCEB0188CF3040048FBBE /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		092BCEB1188CF3040048FBBE /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		092BCEB2188CF3040048FBBE /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		092BCEB3188CF3040048FBBE /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		092BCEB4188CF3040048FBBE /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		092BCEB5188CF3040048FBBE /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		092BCEB6188CF3040048FBBE /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		380D62A7176096FD00DAFD00 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		380D62A91760972200DAFD00 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		380D62AA1760972200DAFD00 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
@@ -738,6 +751,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3879850817683D0F00A4D830 /* MessageUI.framework in Frameworks */,
+				092BCEB7188CF3040048FBBE /* libGoogleAdMobAds.a in Frameworks */,
 				380D62A8176096FD00DAFD00 /* Security.framework in Frameworks */,
 				38A30E371761DF6C00B36205 /* libsqlite3.dylib in Frameworks */,
 				38A30E351761DF5700B36205 /* Accounts.framework in Frameworks */,
@@ -758,6 +772,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092BCEAB188CF3040048FBBE /* GoogleAdMobAdsSdkiOS-6.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				092BCEAC188CF3040048FBBE /* GADAdMobExtras.h */,
+				092BCEAD188CF3040048FBBE /* GADAdNetworkExtras.h */,
+				092BCEAE188CF3040048FBBE /* GADAdSize.h */,
+				092BCEAF188CF3040048FBBE /* GADBannerView.h */,
+				092BCEB0188CF3040048FBBE /* GADBannerViewDelegate.h */,
+				092BCEB1188CF3040048FBBE /* GADInterstitial.h */,
+				092BCEB2188CF3040048FBBE /* GADInterstitialDelegate.h */,
+				092BCEB3188CF3040048FBBE /* GADRequest.h */,
+				092BCEB4188CF3040048FBBE /* GADRequestError.h */,
+				092BCEB5188CF3040048FBBE /* libGoogleAdMobAds.a */,
+				092BCEB6188CF3040048FBBE /* README.txt */,
+			);
+			path = "GoogleAdMobAdsSdkiOS-6.7.0";
+			sourceTree = "<group>";
+		};
 		380D62AF176097A800DAFD00 /* VerificationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1651,6 +1683,7 @@
 		D8DE21F31740B288005BC015 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				092BCEAB188CF3040048FBBE /* GoogleAdMobAdsSdkiOS-6.7.0 */,
 				38A0537E17682F9600A4723F /* Facebook */,
 				38A0538317682F9600A4723F /* ShareKit */,
 				380D62AF176097A800DAFD00 /* VerificationController */,
@@ -2049,6 +2082,7 @@
 				84BA9599175DF668005C23E4 /* timeIcon.png in Resources */,
 				D896B719175E0B870049C456 /* FinalLogo.mov in Resources */,
 				D8F61F9E175F0CCD0096CE69 /* VideoPlayViewController.xib in Resources */,
+				092BCEB8188CF3040048FBBE /* README.txt in Resources */,
 				38A0D15417605BBC00806A9A /* SplashViewController.xib in Resources */,
 				38A0D15817605DEB00806A9A /* splash.png in Resources */,
 				38A0D15917605DEB00806A9A /* splash@2x.png in Resources */,
@@ -2327,6 +2361,11 @@
 				GCC_PREFIX_HEADER = "What'sThat/What'sThat-Prefix.pch";
 				INFOPLIST_FILE = "What'sThat/What'sThat-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAdMobAdsSdkiOS-6.7.0",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Guess This";
 				PROVISIONING_PROFILE = "17ED07A0-C42E-4CE7-8ED3-5477BEEA0FE7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17ED07A0-C42E-4CE7-8ED3-5477BEEA0FE7";
@@ -2349,6 +2388,11 @@
 				GCC_PREFIX_HEADER = "What'sThat/What'sThat-Prefix.pch";
 				INFOPLIST_FILE = "What'sThat/What'sThat-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAdMobAdsSdkiOS-6.7.0",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Guess This";
 				PROVISIONING_PROFILE = "17ED07A0-C42E-4CE7-8ED3-5477BEEA0FE7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17ED07A0-C42E-4CE7-8ED3-5477BEEA0FE7";
