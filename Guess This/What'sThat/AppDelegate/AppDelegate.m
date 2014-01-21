@@ -17,7 +17,8 @@
 #import "LevelViewController.h"
 #import "TestFlight.h"
 
-#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"
+#define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
+//#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
 
 @implementation AppDelegate
 @synthesize window;
@@ -2027,7 +2028,7 @@
   interstitial_.delegate = self;
   interstitial_.adUnitID = ADMOB_UNIT_ID;
   GADRequest *request = [GADRequest request];
-  request.testDevices = [NSArray arrayWithObjects: GAD_SIMULATOR_ID, @"FFFFFFFF4707154B7B294E08B721E26FF479598C", @"347bbfbd16db2b12978e9f5ed6c90e7441995c98", nil];
+  request.testDevices = [NSArray arrayWithObjects: GAD_SIMULATOR_ID, @"FFFFFFFF4707154B7B294E08B721E26FF479598C", @"347BBFBD16DB2B12978E9F5ED6C90E7441995C98", nil];
   [interstitial_ loadRequest:request];
 }
 
