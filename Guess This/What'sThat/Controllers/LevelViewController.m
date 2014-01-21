@@ -194,7 +194,11 @@
         [controller addImage:questionImv.image];
         
         [self presentViewController:controller animated:YES completion:Nil];
-        
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Please setup Facebook in settings." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles: nil];
+        [alert show];
     }
 }
 
