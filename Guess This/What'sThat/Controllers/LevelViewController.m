@@ -7,6 +7,8 @@
 //
 
 #import "LevelViewController.h"
+#import <Social/Social.h>
+
 #define FIXLABELHEIGHT 100
 #define OPTION_IMAGE_HEIGHT 29
 
@@ -165,7 +167,7 @@
 
 -(IBAction)btnFaceBookClicked:(id)sender
 {
-
+/*
     [appDelegate showActivityIndicator];
     [SVProgressHUD showWithStatus:@"Wait"];
     if([appDelegate checkInternetConnection])
@@ -180,6 +182,19 @@
         [appDelegate hideActivityIndicator];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:ALERT_INTERNET delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles: nil];
         [alert show];
+    }
+ */
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [controller setInitialText:@"Does anyone know what this picture is? I'm playing Guess this Image on iOS!"];
+        [controller addURL:[NSURL URLWithString:@"http://goo.gl/Z1tukU"]];
+        [controller addImage:questionImv.image];
+        
+        [self presentViewController:controller animated:YES completion:Nil];
+        
     }
 }
 
