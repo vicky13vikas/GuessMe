@@ -20,6 +20,7 @@
 	
 	NSError *error;//
 	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
     if ([strAudioFile isEqualToString:@"playStart.wav"])
     {
       audioPlayer.numberOfLoops = -1;

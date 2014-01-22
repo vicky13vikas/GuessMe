@@ -56,7 +56,7 @@
 #define DIC_IMAGENAME @"imgnm"
 #define DIC_IMGURL  @"imgURL"
 
-#define arrayInAppPur [NSArray arrayWithObjects: @"500 Stars - £0.69",@"1500 Stars - £1.49",@"4000 Stars - £2.99",@"10,000 Stars - £5.99",@"25,000 Stars - £9.99",@"35,000 Stars - £12.99",nil]
+#define arrayInAppPur [NSArray arrayWithObjects: @"500 Stars - $0.99",@"1500 Stars - $1.99",@"4000 Stars - $2.99",@"10,000 Stars - $5.99",@"25,000 Stars - $9.99",@"35,000 Stars - $12.99",nil]
 #define arrStar [NSArray arrayWithObjects: @"500",@"1500",@"4000",@"10000",@"25000",@"35000",nil]
 #define arrProductIdentifire [NSArray arrayWithObjects: @"com.mobile.guesswhat.500Star",@"com.mobile.guesswhat.1500Stars",@"com.mobile.guesswhat.4000Stars",@"com.mobile.guesswhat.10000Stars",@"com.mobile.guesswhat.25000Stars",@"com.mobile.guesswhat.35000Stars",nil]
 
@@ -116,12 +116,12 @@
 
 #pragma mark - Score Constants
 #define SCORE_INITIAL 20
-#define SCORE_FACEBOOK 20
+#define SCORE_FACEBOOK 50
 #define SCORE_HINT_1 100
 #define SCORE_HINT_2 150
 #define SCORE_HINT_3 250
 #define SCORE_LEVEL 20
-#define SCORE_ROUND 5
+#define SCORE_ROUND 10
 #define SCORE_BONUS 10
 #define SCORE_RATE 50
 #define SCORE_SET 500
@@ -141,8 +141,8 @@
 
 #define INAPP_MSG @"You do not have enough stars, you can get some more stars here."
 #define MSG_HINT1 @"We will reveal how many letters and words are in this answer for" 
-#define MSG_HINT2 @"We shall give you a written clue about the answer for"
-#define MSG_HINT3 @"We shall reveal the WHOLE answer for" 
+#define MSG_HINT2 @"We will give you a written clue about the answer for"
+#define MSG_HINT3 @"We will reveal the WHOLE answer for" 
 
 #pragma mark - Facebook
 //Try Calendar
