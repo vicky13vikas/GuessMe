@@ -54,6 +54,11 @@
     [self setInterface];
     [appDelegate calculateCurrentScore];
     [self updateTotalStars];
+    
+    if (!appDelegate.adBanner) {
+        [appDelegate loadAds];
+    }
+    [self.view addSubview:appDelegate.adBanner];
 }
 
 -(void)viewWillDisappear:(BOOL)animated

@@ -159,6 +159,10 @@
 //#define FB_APPID  @"250940308357307"
 //#define FB_APP_SECRET  @"20b1cf814566e38b5a39e5b4cc66b5ff"
 
+#define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
+//#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
+
+
 
 @interface Constant : NSObject 
 {

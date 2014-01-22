@@ -15,6 +15,9 @@
 #import "GADInterstitial.h"
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
+#import "GADBannerView.h"
+#import "GADBannerViewDelegate.h"
+#import "GADRequest.h"
 
 
 typedef enum
@@ -26,7 +29,7 @@ typedef enum
 
 @class HomeViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CallWebServiceAsyncDelegate,GADInterstitialDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CallWebServiceAsyncDelegate,GADInterstitialDelegate, GADBannerViewDelegate>
 {
     IBOutlet UIWindow *window;
     IBOutlet UIWindow *windowControllers;
@@ -141,6 +144,7 @@ typedef enum
 @property(nonatomic,readwrite)int maxLevelSet;
 @property(nonatomic,readwrite)int currentLevelSet;
 @property(nonatomic,retain)AudioPlay *objAudio;
+@property(nonatomic, strong) GADBannerView *adBanner;
 
 //@property(nonatomic,retain)NSMutableDictionary *dicImageInfo;
 
@@ -213,4 +217,6 @@ typedef enum
 -(NSMutableArray *)get4SetImages;
 -(NSMutableDictionary *)getImageURLForInitialSetQuestion:(int)intSetNo;
 -(void)checkIFAllInitialSetImagesDownloaded;
+
+-(void)loadAds;
 @end

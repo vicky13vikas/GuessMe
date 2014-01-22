@@ -17,9 +17,6 @@
 #import "LevelViewController.h"
 #import "TestFlight.h"
 
-#define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
-//#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
-
 static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
 
 @implementation AppDelegate
@@ -1862,7 +1859,7 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
   if(!isAdMobStarted)
   {
     isAdMobStarted = YES;
-    [self startFetchingAds];
+//    [self startFetchingAds];  Disabled the featue to get full screen ads after 3 minutes.
   }
 }
 -(void)disableHomeButtons
@@ -2037,6 +2034,8 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
 //    }
 }
 
+#pragma -mark GADInterestitial Ads
+
 -(void)fetchAds
 {
   interstitial_ = [[GADInterstitial alloc] init];
@@ -2078,4 +2077,47 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     [[GAI sharedInstance].defaultTracker send:event];
     [[GAI sharedInstance] dispatch];
 }
+
+#pragma -mark GADBannerView
+
+-(void)loadAds
+{
+    // Use predefined GADAdSize constants to define the GADBannerView.
+    
+    CGPoint origin = CGPointMake(0.0,
+                                 [self.navigationController topViewController].view.frame.size.height -
+                                 CGSizeFromGADAdSize(kGADAdSizeBanner).height);
+    
+    self.adBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
+    
+    // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID before compiling.
+    self.adBanner.adUnitID = ADMOB_UNIT_ID;
+    self.adBanner.delegate = self;
+    self.adBanner.rootViewController = [self.navigationController topViewController];
+    [self.adBanner loadRequest:[self request]];
+    //    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(refreshAd) userInfo:Nil repeats:YES];
+    
+}
+
+- (GADRequest *)request {
+    GADRequest *request = [GADRequest request];
+    
+    // Make the request for a test ad. Put in an identifier for the simulator as well as any devices
+    // you want to receive test ads.
+    request.testDevices = @[
+                            // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
+                            // the console when the app is launched.
+                            GAD_SIMULATOR_ID
+                            ];
+    return request;
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    NSLog(@"Received ad successfully");
+}
+
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"Failed to receive ad with error: %@", [error localizedFailureReason]);
+}
+
 @end
