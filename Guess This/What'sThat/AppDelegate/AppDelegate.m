@@ -20,6 +20,8 @@
 #define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
 //#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
 
+static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
+
 @implementation AppDelegate
 @synthesize window;
 @synthesize navigationController,homeVC;
@@ -71,6 +73,11 @@
     [self.window makeKeyAndVisible];
     
     [TestFlight takeOff:@"beb9bf33-2019-401b-a03f-093504ef93b7"];
+  
+    [GAI sharedInstance].dispatchInterval = 60;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    self.tracker = [[GAI sharedInstance] trackerWithName:@"GuessThis"
+                                            trackingId:kTrackingId];
     
     return YES;
 }
@@ -79,6 +86,13 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+  
+  NSTimeInterval intervalSincelaunch = [[NSDate date] timeIntervalSinceDate:launchTime];
+  NSLog(@"%d",[[NSNumber numberWithDouble:intervalSincelaunch] intValue]);
+  NSMutableDictionary *event =
+  [[GAIDictionaryBuilder createTimingWithCategory:@"TimeSpent" interval:[NSNumber numberWithDouble:intervalSincelaunch] name:@"VIKAS" label:@""] build];
+  [[GAI sharedInstance].defaultTracker send:event];
+  [[GAI sharedInstance] dispatch];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -107,6 +121,7 @@
         [self showActivityIndicator];
     }
 //    [self callRateIt];
+  launchTime = [NSDate date];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -2053,4 +2068,14 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
   [interstitial presentFromRootViewController:[self.navigationController topViewController]];
 }
 
+- (void)interstitialWillPresentScreen:(GADInterstitial *)ad
+{
+    NSMutableDictionary *event =
+    [[GAIDictionaryBuilder createEventWithCategory:@"AdMob"
+                                          action:@"AdPresented"
+                                           label:@"AdPresented"
+                                           value:nil] build];
+    [[GAI sharedInstance].defaultTracker send:event];
+    [[GAI sharedInstance] dispatch];
+}
 @end

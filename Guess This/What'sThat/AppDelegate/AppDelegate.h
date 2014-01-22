@@ -13,6 +13,8 @@
 #import "SplashViewController.h"
 #import "AudioPlay.h"
 #import "GADInterstitial.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 
 typedef enum
@@ -101,6 +103,8 @@ typedef enum
   
     BOOL isAdMobStarted;
     GADInterstitial *interstitial_;
+  
+    NSDate *launchTime;
 }
 @property (retain, nonatomic)  NSMutableArray *imageQueue;
 @property (retain, nonatomic) NSMutableArray *arrInitialSetQuestionInfo;
@@ -141,7 +145,7 @@ typedef enum
 //@property(nonatomic,retain)NSMutableDictionary *dicImageInfo;
 
 @property(nonatomic,retain)NSTimer *timer1;
-
+@property(nonatomic, strong) id<GAITracker> tracker;
 
 //In App
 @property(nonatomic,retain)NSArray *arrayProduct;
