@@ -381,6 +381,11 @@
     intCurrentHint = 2;
     if(isHint2Used)
         [self showHintView];
+    else if(!isHint1Used)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:MSG_HINT1_NOT_USED delegate:self cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+        [alert show];
+    }
     else
     {
         if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_HINT2])
@@ -408,6 +413,16 @@
     intCurrentHint = 3;
     if(isHint3Used)
         [self showHintView];
+    else if(!isHint1Used)
+    {
+      UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:MSG_HINT1_NOT_USED delegate:self cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+      [alert show];
+    }
+    else if(!isHint2Used)
+    {
+      UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:MSG_HINT2_NOT_USED delegate:self cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+      [alert show];
+    }
     else
     {
         if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_HINT3])
@@ -554,6 +569,15 @@
     else if(alertView.tag == 6)
     {
         [self hideBonusView:TRUE];
+    }
+    else if(alertView.tag == 7)
+    {
+      if(buttonIndex == 0)
+        [self goToNextLevel];
+      else
+      {
+        
+      }
     }
 }
 
@@ -792,6 +816,8 @@
     [txtAnswer resignFirstResponder];
      [self changeViewFrameOnTextEditing];
     [appDelegate showViewAnimation:viewHint];
+  
+    [self loadAds];
 }
 
 -(void)showMoreStarsView
@@ -1016,11 +1042,28 @@
     dicWhere = nil;
 }
 
+-(void)goToNextLevel
+{
+  [self updateLevel];
+  [self retriveCurrentLevel];
+}
+
 -(void)proceedToNextLevel
 {
-    [self updateLevel];
-    
-    [self retriveCurrentLevel];
+  NSLog(@"Level : %d", [[dicLevelInfo objectForKey:DB_LEVEL_NO] intValue]);
+
+    if ((3 == [[dicLevelInfo objectForKey:DB_LEVEL_NO] intValue]) || (9 == [[dicLevelInfo objectForKey:DB_LEVEL_NO] intValue])) {
+      
+      UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:ALERT_REMOVE_ADS delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+      alert.tag = 7;
+      [alert show];
+
+    }
+    else {
+      [self goToNextLevel];
+    }
+        
+
 }
 
 -(void)updateQuestionStatus
@@ -1605,6 +1648,50 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma -mark GADBannerView
+
+
+-(void)loadAds
+{
+  // Use predefined GADAdSize constants to define the GADBannerView.
+  
+  CGPoint origin = CGPointMake((self.view.frame.size.width - CGSizeFromGADAdSize(kGADAdSizeMediumRectangle).width)/2,
+                               (self.view.frame.size.height - CGSizeFromGADAdSize(kGADAdSizeMediumRectangle).height)/2);
+  
+  self.adBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
+  
+  // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID before compiling.
+  self.adBanner.adUnitID = ADMOB_UNIT_ID;
+  self.adBanner.adSize = kGADAdSizeMediumRectangle;
+  self.adBanner.delegate = self;
+  self.adBanner.rootViewController = self;
+  [self.view addSubview:self.adBanner];
+  [self.adBanner loadRequest:[self request]];
+  //    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(refreshAd) userInfo:Nil repeats:YES];
+  
+}
+
+- (GADRequest *)request {
+  GADRequest *request = [GADRequest request];
+  
+  // Make the request for a test ad. Put in an identifier for the simulator as well as any devices
+  // you want to receive test ads.
+  request.testDevices = @[
+                          // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
+                          // the console when the app is launched.
+                          GAD_SIMULATOR_ID
+                          ];
+  return request;
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+  NSLog(@"Received ad successfully");
+}
+
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
+  NSLog(@"Failed to receive ad with error: %@", [error localizedFailureReason]);
 }
 
 @end

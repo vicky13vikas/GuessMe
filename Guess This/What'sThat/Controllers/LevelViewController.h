@@ -17,7 +17,7 @@ typedef enum
     FeedUser = 3,
 }currentFacebookCall;
 
-@interface LevelViewController : UIViewController<UITextFieldDelegate,InAppViewDelegate,ShareKitDelegate>
+@interface LevelViewController : UIViewController<UITextFieldDelegate,InAppViewDelegate,ShareKitDelegate, GADBannerViewDelegate>
 {
     AudioPlay *objAudio;
     
@@ -133,6 +133,9 @@ typedef enum
     BOOL Completed;
 
 }
+
+@property(nonatomic, strong) GADBannerView *adBanner;
+
 #pragma mark - Button Click Methods
 -(IBAction)btnBackClicked:(id)sender;
 -(IBAction)btnFaceBookClicked:(id)sender;

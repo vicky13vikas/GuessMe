@@ -92,6 +92,9 @@
 #define ALERT_INTERNET @"Internet not available."
 #define ALERT_RATEMSG @"We'd really appreciate it if you could take a moment to rate this application. If you've done it in the past, update your rating for this current release. \n\nThanks for your support!"
 
+#define ALERT_REMOVE_ADS @"Would you like to upgrade to remove all ads?"
+
+
 #pragma mark - NSUserDefaults Constants
 #define USERDEFAULTS_SYNCHTIME @"lastSynchTime"
 #define USERDEFAULTS_ISFB_PAGE_LIKED @"fbpageLiked"
@@ -143,6 +146,9 @@
 #define MSG_HINT1 @"We will reveal how many letters and words are in this answer for" 
 #define MSG_HINT2 @"We will give you a written clue about the answer for"
 #define MSG_HINT3 @"We will reveal the WHOLE answer for" 
+
+#define MSG_HINT1_NOT_USED @"You should use Hint 1 first."
+#define MSG_HINT2_NOT_USED @"You should use Hint 2 first."
 
 #pragma mark - Facebook
 //Try Calendar
