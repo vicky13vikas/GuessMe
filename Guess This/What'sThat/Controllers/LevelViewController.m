@@ -73,6 +73,8 @@
     }
     
     [appDelegate invalidateCloudAnimationTimer];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kVideoFinished object:nil];
 }
 
 #pragma mark - Interface Orientaion

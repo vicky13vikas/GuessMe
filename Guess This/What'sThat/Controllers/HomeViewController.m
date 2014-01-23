@@ -10,6 +10,11 @@
 
 @interface HomeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *btnAdMobVideo;
+
+- (IBAction)playAdMobVideo:(id)sender;
+
+
 @end
 
 @implementation HomeViewController
@@ -46,10 +51,19 @@
         appDelegate.isWSCalled =YES;
        [appDelegate performSelector:@selector(callSynchWebService) withObject:nil afterDelay:0.2];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zoneReady) name:kZoneReady object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zoneOff) name:kZoneOff object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zoneLoading) name:kZoneLoading object:nil];
 }
+
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [appDelegate invalidateCloudAnimationTimer];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kZoneReady object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kZoneOff object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kZoneLoading object:nil];
 }
 
 #pragma mark - Interface Orientaion
@@ -335,4 +349,20 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)playAdMobVideo:(id)sender
+{
+    [appDelegate showAdColonyVideo];
+}
+
+- (void)zoneReady {
+    [_btnAdMobVideo setHidden:NO];
+}
+
+- (void)zoneOff {
+    [_btnAdMobVideo setHidden:YES];
+}
+
+- (void)zoneLoading {
+    [_btnAdMobVideo setHidden:YES];
+}
 @end
