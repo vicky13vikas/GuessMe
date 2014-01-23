@@ -12,6 +12,8 @@
 #define FIXLABELHEIGHT 100
 #define OPTION_IMAGE_HEIGHT 29
 
+#define TAG_VIEW_FOR_AD 121
+
 @implementation LevelViewController
 
 #pragma mark - 
@@ -1657,8 +1659,7 @@
 {
   // Use predefined GADAdSize constants to define the GADBannerView.
   
-  CGPoint origin = CGPointMake((self.view.frame.size.width - CGSizeFromGADAdSize(kGADAdSizeMediumRectangle).width)/2,
-                               (self.view.frame.size.height - CGSizeFromGADAdSize(kGADAdSizeMediumRectangle).height)/2);
+  CGPoint origin = CGPointMake(0, 0);
   
   self.adBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
   
@@ -1667,7 +1668,7 @@
   self.adBanner.adSize = kGADAdSizeMediumRectangle;
   self.adBanner.delegate = self;
   self.adBanner.rootViewController = self;
-  [self.view addSubview:self.adBanner];
+//  [self.view addSubview:self.adBanner];
   [self.adBanner loadRequest:[self request]];
   //    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(refreshAd) userInfo:Nil repeats:YES];
   
@@ -1688,7 +1689,28 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
   NSLog(@"Received ad successfully");
+    
+    CGRect frame = CGRectMake((self.view.frame.size.width - kGADAdSizeMediumRectangle.size.width)/2,
+                              (self.view.frame.size.height - kGADAdSizeMediumRectangle.size.height)/2,
+                              300,
+                              250);
+    UIView *viewForAd = [[UIView alloc] initWithFrame:frame];
+    viewForAd.tag = TAG_VIEW_FOR_AD;
+    [viewForAd addSubview:adView];
+    
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(-10, -10, 30, 30)];
+    [closeButton setBackgroundImage:[UIImage imageNamed:@"close.png"] forState:UIControlStateNormal];
+    [closeButton addTarget:self action:@selector(adCloseBtnClicked) forControlEvents:UIControlEventAllEvents];
+    [viewForAd addSubview:closeButton];
+    
+    [self.view addSubview:viewForAd];
 }
+
+- (void)adCloseBtnClicked
+{
+    [[self.view viewWithTag:TAG_VIEW_FOR_AD] removeFromSuperview];
+}
+
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
   NSLog(@"Failed to receive ad with error: %@", [error localizedFailureReason]);
