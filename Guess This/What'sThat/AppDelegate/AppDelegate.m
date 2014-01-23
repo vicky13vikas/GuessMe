@@ -76,6 +76,11 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
     self.tracker = [[GAI sharedInstance] trackerWithName:@"GuessThis"
                                             trackingId:kTrackingId];
     
+    [AdColony configureWithAppID:@"appbdee68ae27024084bb334a" zoneIDs:@[@"vzf8fb4670a60e4a139d01b5", @"vzf8e4e97704c4445c87504e"] delegate:self logging:YES];
+//    [AdColony configureWithAppID:@"appc13d2e08e116402aa0" zoneIDs:@[@"vz578944a944074e918b", @"vzffbe3022d1e24064ae"] delegate:self logging:YES];
+
+
+    
     return YES;
 }
 
@@ -1204,6 +1209,11 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
     
     if([[[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULTS_IS_RATED] intValue]==1)
     	intPoints = intPoints + SCORE_RATE;
+    
+    int numberOfTimesVideoSeen = [[[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULTS_USER_COMPLETED_VIDEO] intValue];
+    if(numberOfTimesVideoSeen > 0)
+    	intPoints = intPoints + (SCORE_ADCOLONY_VIDEO * numberOfTimesVideoSeen);
+
 
     return intPoints;
 }
@@ -2118,6 +2128,62 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"Failed to receive ad with error: %@", [error localizedFailureReason]);
+}
+
+#pragma mark -
+#pragma mark AdColony V4VC
+
+-(void)showAdColonyVideo
+{
+    [appDelegate.objAudio stopAudio];
+    [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+}
+
+#pragma mark -
+#pragma mark AdColony V4VC
+
+// Callback activated when a V4VC currency reward succeeds or fails
+// This implementation is designed for client-side virtual currency without a server
+// It uses NSUserDefaults for persistent client-side storage of the currency balance
+// For applications with a server, contact the server to retrieve an updated currency balance
+// On success, posts an NSNotification so the rest of the app can update the UI
+// On failure, posts an NSNotification so the rest of the app can disable V4VC UI elements
+- ( void ) onAdColonyV4VCReward:(BOOL)success currencyName:(NSString*)currencyName currencyAmount:(int)amount inZone:(NSString*)zoneID {
+	NSLog(@"AdColony zone %@ reward %i %i %@", zoneID, success, amount, currencyName);
+  
+
+	if (success)
+    {
+        int numberOfTimesVideoSeen = [[[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULTS_USER_COMPLETED_VIDEO] intValue];
+        [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d",numberOfTimesVideoSeen+1] forKey:USERDEFAULTS_USER_COMPLETED_VIDEO];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kVideoFinished object:nil];
+	}
+    else
+    {
+		[[NSNotificationCenter defaultCenter] postNotificationName:kZoneOff object:nil];
+	}
+}
+
+#pragma mark -
+#pragma mark AdColony ad fill
+- ( void ) onAdColonyAdAvailabilityChange:(BOOL)available inZone:(NSString*) zoneID {
+	if(available) {
+		[[NSNotificationCenter defaultCenter] postNotificationName:kZoneReady object:nil];
+	} else {
+		[[NSNotificationCenter defaultCenter] postNotificationName:kZoneLoading object:nil];
+	}
+}
+
+- ( void ) onAdColonyAdStartedInZone:( NSString * )zoneID
+{
+    
+}
+
+- ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID
+{
+    [appDelegate.objAudio playAudio];
 }
 
 @end

@@ -48,6 +48,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScoreAdMobVideo) name:kVideoFinished object:nil];
+
     [self initializeHints];
     [self flushOldDataFromInterface];
     [self changeViewFrameOnTextEditing];
@@ -741,6 +743,8 @@
 	switch (intCurrentHint)
     {
         case 1:
+            [self loadAds];
+
             imgHintBackground.image = [UIImage imageNamed:@"hint1Bg.png"];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint1.png"] forState:UIControlStateNormal];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint1.png"] forState:UIControlStateHighlighted];
@@ -765,7 +769,9 @@
             
             break;
         case 2:
-			imgHintBackground.image = [UIImage imageNamed:@"hint2Bg.png"];            
+            [self loadAds];
+
+			imgHintBackground.image = [UIImage imageNamed:@"hint2Bg.png"];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint2.png"] forState:UIControlStateNormal];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint2.png"] forState:UIControlStateHighlighted];
             lblHintTitle.text = @"Hint 2";
@@ -789,6 +795,8 @@
             
             break;            
         case 3:
+            [appDelegate showAdColonyVideo];
+
             imgHintBackground.image = [UIImage imageNamed:@"hint3Bg.png"];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint3.png"] forState:UIControlStateNormal];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint3.png"] forState:UIControlStateHighlighted];
@@ -819,7 +827,6 @@
      [self changeViewFrameOnTextEditing];
     [appDelegate showViewAnimation:viewHint];
   
-    [self loadAds];
 }
 
 -(void)showMoreStarsView
@@ -1286,6 +1293,11 @@
     
     [btnInAppPurchase setTitle:[NSString stringWithFormat:@"%d",intTotalStars] forState:UIControlStateNormal];
     [btnInAppPurchase setTitle:[NSString stringWithFormat:@"%d",intTotalStars] forState:UIControlStateHighlighted];
+}
+
+-(void)updateScoreAdMobVideo
+{
+    [self updateScore:0];
 }
 
 #pragma mark - Bonus Timer Related Methods

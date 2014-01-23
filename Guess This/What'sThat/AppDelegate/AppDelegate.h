@@ -18,6 +18,7 @@
 #import "GADBannerView.h"
 #import "GADBannerViewDelegate.h"
 #import "GADRequest.h"
+#import <AdColony/AdColony.h>
 
 
 typedef enum
@@ -29,7 +30,7 @@ typedef enum
 
 @class HomeViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CallWebServiceAsyncDelegate,GADInterstitialDelegate, GADBannerViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CallWebServiceAsyncDelegate,GADInterstitialDelegate, GADBannerViewDelegate, AdColonyDelegate, AdColonyAdDelegate>
 {
     IBOutlet UIWindow *window;
     IBOutlet UIWindow *windowControllers;
@@ -219,4 +220,6 @@ typedef enum
 -(void)checkIFAllInitialSetImagesDownloaded;
 
 -(void)loadAds;
+-(void)showAdColonyVideo;
+
 @end

@@ -115,6 +115,8 @@
 #define USERDEFAULTS_DECR_SETSCORE @"isSetScoreDecremented"
 #define USERDEFAULTS_RATE_ST_DATE @"rt_st_dt"
 #define USERDEFAULTS_IS_ALREADY_INSTALLED @"isfirsttime"
+#define USERDEFAULTS_USER_COMPLETED_VIDEO @"hasUserCompletedVideo"
+
 
 
 #pragma mark - Score Constants
@@ -128,6 +130,8 @@
 #define SCORE_BONUS 10
 #define SCORE_RATE 50
 #define SCORE_SET 500
+#define SCORE_ADCOLONY_VIDEO 50
+
 
 #pragma mark - Set Intervals
 #define SET1_LEVEL_INTERVAL 10
@@ -168,6 +172,10 @@
 #define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
 //#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
 
+#define kZoneLoading @"ZoneLoading"
+#define kZoneReady @"ZoneReady"
+#define kZoneOff @"ZoneOff"
+#define kVideoFinished @"VideoFinished"
 
 
 @interface Constant : NSObject 
