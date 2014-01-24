@@ -58,6 +58,7 @@
     
     NSLog(@"arrSetsBought :: %@",[arrSetsBought description]);
     if (!appDelegate.adBanner) {
+      if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
         [appDelegate loadAds];
     }
     [self.view addSubview:appDelegate.adBanner];

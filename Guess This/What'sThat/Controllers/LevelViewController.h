@@ -17,7 +17,7 @@ typedef enum
     FeedUser = 3,
 }currentFacebookCall;
 
-@interface LevelViewController : UIViewController<UITextFieldDelegate,InAppViewDelegate,ShareKitDelegate, GADBannerViewDelegate>
+@interface LevelViewController : UIViewController<UITextFieldDelegate,InAppViewDelegate,ShareKitDelegate, GADBannerViewDelegate, IAPHelperDelegate>
 {
     AudioPlay *objAudio;
     

@@ -593,9 +593,87 @@
         [self goToNextLevel];
       else
       {
-        
+        [self buyRemoveAds];
       }
     }
+}
+
+#pragma -mark InApp Purchase and IAPHelperDelegate
+
+-(void)buyRemoveAds
+{
+
+  SKProduct *productToBuy;
+  NSLog(@"appDelegate.arrayProduct::%@",[appDelegate.arrayProduct description]);
+  if([appDelegate.arrayProduct count]>0)
+  {
+    for (SKProduct *product in appDelegate.arrayProduct)
+    {
+      if ([product.productIdentifier isEqualToString:PRODUCT_ID_REMOVE_ADS]) {
+        productToBuy = product;
+        break;
+      }
+    }
+    
+    //    NSLog(@"Buying %@", productToBuy.productIdentifier);
+    RageIAPHelper *objRage = [RageIAPHelper sharedInstance];
+    objRage._delegate = self;
+    [objRage buyProduct:productToBuy];
+  }
+  else
+  {
+    
+    [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+      if (success)
+      {
+        NSLog(@"Received Produst : %@", products);
+        //            NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"price" ascending: YES];
+        //            [arrayProduct sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortOrder]];
+      }
+      else
+      {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Could not connect to store." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+        [alert show];
+
+      }
+    }];
+
+  }
+}
+
+-(void)completeTransaction:(SKPaymentTransaction *)transaction
+{
+  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction Successfull." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+  [alert show];
+  
+  [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED];
+  [[NSUserDefaults standardUserDefaults]  synchronize];
+  
+  [self goToNextLevel];
+}
+
+-(void)restoreTransaction:(SKPaymentTransaction *)transaction
+{
+  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction Restored." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+  [alert show];
+  
+  [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED];
+  [[NSUserDefaults standardUserDefaults]  synchronize];
+  
+  [self goToNextLevel];
+}
+
+-(void)failedTransaction:(SKPaymentTransaction *)transaction
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction failed." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [alert show];
+  
+  if (appDelegate.adBanner) {
+    [appDelegate.adBanner removeFromSuperview];
+    appDelegate.adBanner = nil;
+  }
+
+    [self goToNextLevel];
 }
 
 #pragma mark - Facebook related methods
@@ -1684,18 +1762,19 @@
 {
   // Use predefined GADAdSize constants to define the GADBannerView.
   
-  CGPoint origin = CGPointMake(0, 0);
-  
-  self.adBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
-  
-  // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID before compiling.
-  self.adBanner.adUnitID = ADMOB_UNIT_ID;
-  self.adBanner.adSize = kGADAdSizeMediumRectangle;
-  self.adBanner.delegate = self;
-  self.adBanner.rootViewController = self;
-//  [self.view addSubview:self.adBanner];
-  [self.adBanner loadRequest:[self request]];
-  //    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(refreshAd) userInfo:Nil repeats:YES];
+  if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
+  {
+    CGPoint origin = CGPointMake(0, 0);
+    
+    self.adBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
+    
+    // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID before compiling.
+    self.adBanner.adUnitID = ADMOB_UNIT_ID;
+    self.adBanner.adSize = kGADAdSizeMediumRectangle;
+    self.adBanner.delegate = self;
+    self.adBanner.rootViewController = self;
+    [self.adBanner loadRequest:[self request]];
+  }
   
 }
 

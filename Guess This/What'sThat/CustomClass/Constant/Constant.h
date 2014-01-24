@@ -116,6 +116,8 @@
 #define USERDEFAULTS_RATE_ST_DATE @"rt_st_dt"
 #define USERDEFAULTS_IS_ALREADY_INSTALLED @"isfirsttime"
 #define USERDEFAULTS_USER_COMPLETED_VIDEO @"hasUserCompletedVideo"
+#define USERDEFAULTS_IS_REMOVE_ADS_PURCHASED @"isRemoveAdPurchased"
+
 
 
 
@@ -176,6 +178,8 @@
 #define kZoneReady @"ZoneReady"
 #define kZoneOff @"ZoneOff"
 #define kVideoFinished @"VideoFinished"
+
+#define PRODUCT_ID_REMOVE_ADS @"com.mobile.guesswhat.500Star"
 
 
 @interface Constant : NSObject 

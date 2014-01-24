@@ -2093,7 +2093,9 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 -(void)loadAds
 {
     // Use predefined GADAdSize constants to define the GADBannerView.
-    
+  
+  if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
+  {
     CGPoint origin = CGPointMake(0.0,
                                  [self.navigationController topViewController].view.frame.size.height -
                                  CGSizeFromGADAdSize(kGADAdSizeBanner).height);
@@ -2106,7 +2108,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     self.adBanner.rootViewController = [self.navigationController topViewController];
     [self.adBanner loadRequest:[self request]];
     //    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(refreshAd) userInfo:Nil repeats:YES];
-    
+  }
 }
 
 - (GADRequest *)request {
@@ -2135,8 +2137,11 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 -(void)showAdColonyVideo
 {
-    [appDelegate.objAudio stopAudio];
-    [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+  if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
+  {
+      [appDelegate.objAudio stopAudio];
+      [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+  }
 }
 
 #pragma mark -
