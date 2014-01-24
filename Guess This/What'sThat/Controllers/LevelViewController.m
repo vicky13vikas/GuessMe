@@ -358,7 +358,9 @@
 {
        
     intCurrentHint = 1;
-    if(isHint1Used)
+    [self showHintView];
+
+   /* if(isHint1Used)
         [self showHintView];
     else
     {
@@ -380,19 +382,23 @@
             }
         }
     }
+    */
 }
 -(void)btnHint2Clicked
 {
        
     intCurrentHint = 2;
-    if(isHint2Used)
-        [self showHintView];
-    else if(!isHint1Used)
+
+    if(!isHint1Used)
     {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:MSG_HINT1_NOT_USED delegate:self cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
         [alert show];
     }
     else
+      [self showHintView];
+
+  
+/*    else
     {
         if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_HINT2])
         {
@@ -412,14 +418,14 @@
             }
         }
     }
+   */
 }
 -(void)btnHint3Clicked
 {
     
     intCurrentHint = 3;
-    if(isHint3Used)
-        [self showHintView];
-    else if(!isHint1Used)
+
+    if(!isHint1Used)
     {
       UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:MSG_HINT1_NOT_USED delegate:self cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
       [alert show];
@@ -430,6 +436,10 @@
       [alert show];
     }
     else
+      [self showHintView];
+
+
+ /*    else
     {
         if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_HINT3])
         {
@@ -449,6 +459,7 @@
             }
         }
     }
+ */
 }
 
 
@@ -762,7 +773,7 @@
             {
                 if(!isHint1Used)
                 {
-                    [self updateScoreForUsingHint:SCORE_HINT_1];
+//                    [self updateScoreForUsingHint:SCORE_HINT_1];
                     [self updateLevelScore];
                 }
             }
@@ -787,7 +798,7 @@
             {
                 if(!isHint2Used)
                 {
-                    [self updateScoreForUsingHint:SCORE_HINT_2];
+//                    [self updateScoreForUsingHint:SCORE_HINT_2];
                     [self updateLevelScore];
                 }
             }
@@ -813,7 +824,7 @@
             {
                 if(!isHint3Used)
                 {
-                    [self updateScoreForUsingHint:SCORE_HINT_3];
+//                    [self updateScoreForUsingHint:SCORE_HINT_3];
                     [self updateLevelScore];
                 }
             }

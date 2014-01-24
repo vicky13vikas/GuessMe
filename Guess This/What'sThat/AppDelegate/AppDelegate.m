@@ -2183,7 +2183,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 - ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID
 {
-    [appDelegate.objAudio playAudio];
+    [self checkMuteEffectAndPlayMusic];
 }
 
 @end
