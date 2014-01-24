@@ -181,13 +181,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IX1-7E-9WU">
-                    <rect key="frame" x="228" y="363" width="76" height="32"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IX1-7E-9WU">
+                    <rect key="frame" x="135" y="110" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" red="0.27932552395473292" green="0.78328284438775508" blue="0.56884215062299115" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                     <size key="titleShadowOffset" width="0.0" height="1"/>
-                    <state key="normal" title="Play Video">
+                    <state key="normal" backgroundImage="play-icon.png">
                         <color key="titleColor" red="0.31372549020000001" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="0.8980392157" green="0.90196078430000004" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -255,6 +255,7 @@
         <image name="infoBtn.png" width="21" height="21"/>
         <image name="musicBtn.png" width="38" height="39"/>
         <image name="musicIconNormal.png" width="48" height="43"/>
+        <image name="play-icon.png" width="197" height="192"/>
         <image name="playBtn.png" width="288" height="146"/>
         <image name="title.png" width="616" height="299"/>
         <image name="transperantBG.png" width="320" height="480"/>

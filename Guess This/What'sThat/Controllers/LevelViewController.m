@@ -602,47 +602,62 @@
 
 -(void)buyRemoveAds
 {
-
-  SKProduct *productToBuy;
-  NSLog(@"appDelegate.arrayProduct::%@",[appDelegate.arrayProduct description]);
-  if([appDelegate.arrayProduct count]>0)
-  {
-    for (SKProduct *product in appDelegate.arrayProduct)
+    [SVProgressHUD show];
+    
+    SKProduct *productToBuy;
+    NSLog(@"appDelegate.arrayProduct::%@",[appDelegate.arrayProduct description]);
+    if([appDelegate.arrayProduct count]>0)
     {
-      if ([product.productIdentifier isEqualToString:PRODUCT_ID_REMOVE_ADS]) {
-        productToBuy = product;
-        break;
-      }
+        for (SKProduct *product in appDelegate.arrayProduct)
+        {
+            if ([product.productIdentifier isEqualToString:PRODUCT_ID_REMOVE_ADS]) {
+                productToBuy = product;
+                break;
+            }
+        }
+        
+        RageIAPHelper *objRage = [RageIAPHelper sharedInstance];
+        objRage._delegate = self;
+        [objRage buyProduct:productToBuy];
     }
-    
-    //    NSLog(@"Buying %@", productToBuy.productIdentifier);
-    RageIAPHelper *objRage = [RageIAPHelper sharedInstance];
-    objRage._delegate = self;
-    [objRage buyProduct:productToBuy];
-  }
-  else
-  {
-    
-    [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
-      if (success)
-      {
-        NSLog(@"Received Produst : %@", products);
-        //            NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"price" ascending: YES];
-        //            [arrayProduct sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortOrder]];
-      }
-      else
-      {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Could not connect to store." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
-        [alert show];
-
-      }
-    }];
-
-  }
+    else
+    {
+        [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            if (success)
+            {
+                SKProduct *productToBuy;
+                if([products count]>0)
+                {
+                    for (SKProduct *product in appDelegate.arrayProduct)
+                    {
+                        if ([product.productIdentifier isEqualToString:PRODUCT_ID_REMOVE_ADS]) {
+                            productToBuy = product;
+                            break;
+                        }
+                    }
+                    
+                    RageIAPHelper *objRage = [RageIAPHelper sharedInstance];
+                    objRage._delegate = self;
+                    [objRage buyProduct:productToBuy];
+                }
+            }
+            else
+            {
+                [SVProgressHUD dismiss];
+                
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Could not connect to store." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+                [alert show];
+                
+            }
+        }];
+        
+    }
 }
 
 -(void)completeTransaction:(SKPaymentTransaction *)transaction
 {
+    [SVProgressHUD dismiss];
+
   UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction Successfull." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
   [alert show];
   
@@ -654,6 +669,8 @@
 
 -(void)restoreTransaction:(SKPaymentTransaction *)transaction
 {
+    [SVProgressHUD dismiss];
+
   UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction Restored." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
   [alert show];
   
@@ -665,6 +682,8 @@
 
 -(void)failedTransaction:(SKPaymentTransaction *)transaction
 {
+    [SVProgressHUD dismiss];
+
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction failed." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
     [alert show];
   
@@ -886,7 +905,7 @@
             
             break;            
         case 3:
-            [appDelegate showAdColonyVideo];
+            [appDelegate showAdColonyVideoIsRequired:NO];
 
             imgHintBackground.image = [UIImage imageNamed:@"hint3Bg.png"];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint3.png"] forState:UIControlStateNormal];

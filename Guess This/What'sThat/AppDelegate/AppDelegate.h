@@ -152,6 +152,8 @@ typedef enum
 @property(nonatomic,retain)NSTimer *timer1;
 @property(nonatomic, strong) id<GAITracker> tracker;
 
+@property(nonatomic,readwrite)BOOL isVideoAddAvailable;
+
 //In App
 @property(nonatomic,retain)NSArray *arrayProduct;
 -(NSArray *)fetchFirstLevelId;
@@ -220,6 +222,6 @@ typedef enum
 -(void)checkIFAllInitialSetImagesDownloaded;
 
 -(void)loadAds;
--(void)showAdColonyVideo;
+-(void)showAdColonyVideoIsRequired:(BOOL)isRequired;   // isRequired if YES, if will not check if the Remove Ads is purchsed or not. It will override it.
 
 @end

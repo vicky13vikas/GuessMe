@@ -76,7 +76,7 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
     self.tracker = [[GAI sharedInstance] trackerWithName:@"GuessThis"
                                             trackingId:kTrackingId];
     
-    [AdColony configureWithAppID:@"appbdee68ae27024084bb334a" zoneIDs:@[@"vzf8fb4670a60e4a139d01b5", @"vzf8e4e97704c4445c87504e"] delegate:self logging:YES];
+    [AdColony configureWithAppID:ADCOLONY_APPID zoneIDs:ADCOLONY_ZONE_IDS delegate:self logging:YES];
 //    [AdColony configureWithAppID:@"appc13d2e08e116402aa0" zoneIDs:@[@"vz578944a944074e918b", @"vzffbe3022d1e24064ae"] delegate:self logging:YES];
 
 
@@ -2135,13 +2135,19 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 #pragma mark -
 #pragma mark AdColony V4VC
 
--(void)showAdColonyVideo
+-(void)showAdColonyVideoIsRequired:(BOOL)isRequired
 {
-  if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
-  {
-      [appDelegate.objAudio stopAudio];
-      [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
-  }
+    if(isRequired)
+    {
+        [appDelegate.objAudio stopAudio];
+        [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+        return;
+    }
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
+    {
+        [appDelegate.objAudio stopAudio];
+        [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+    }
 }
 
 #pragma mark -
@@ -2176,8 +2182,10 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 - ( void ) onAdColonyAdAvailabilityChange:(BOOL)available inZone:(NSString*) zoneID {
 	if(available) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:kZoneReady object:nil];
+        _isVideoAddAvailable = YES;
 	} else {
 		[[NSNotificationCenter defaultCenter] postNotificationName:kZoneLoading object:nil];
+        _isVideoAddAvailable = NO;
 	}
 }
 

@@ -351,18 +351,24 @@
 
 - (IBAction)playAdMobVideo:(id)sender
 {
-    [appDelegate showAdColonyVideo];
+    if(appDelegate.isVideoAddAvailable)
+        [appDelegate showAdColonyVideoIsRequired:YES];
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"No video available now." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)zoneReady {
-    [_btnAdMobVideo setHidden:NO];
+//    _isAddAvailable = YES;
 }
 
 - (void)zoneOff {
-    [_btnAdMobVideo setHidden:YES];
+//    _isAddAvailable = NO;
 }
 
 - (void)zoneLoading {
-    [_btnAdMobVideo setHidden:YES];
+//    _isAddAvailable = NO;
 }
 @end
