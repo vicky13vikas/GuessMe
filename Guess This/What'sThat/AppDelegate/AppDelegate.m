@@ -128,10 +128,11 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    if([objShareKit isSessionValid])
+/*    if([objShareKit isSessionValid])
     {
         [objShareKit logout];
     }
+ */
 }
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
@@ -147,17 +148,16 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     //    NSLog(@"isFaceBookAppCalled = TRUE;");
-    NSLog(@"handle open url");
-    return [objShareKit._facebook handleOpenURL:url];
+//    NSLog(@"handle open url");
+//    return [objShareKit._facebook handleOpenURL:url];
 }
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    NSLog(@"open url");
-    return [objShareKit._facebook handleOpenURL:url];
-;
+//    NSLog(@"open url");
+//    return [objShareKit._facebook handleOpenURL:url];
 }
 
 #pragma mark - Interface Orientation

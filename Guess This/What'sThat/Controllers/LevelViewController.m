@@ -696,6 +696,8 @@
 }
 
 #pragma mark - Facebook related methods
+
+/*
 -(void)shareFacebook
 {
     if(!objShareKit)
@@ -752,7 +754,7 @@
         [alert show];
     }
 }
-
+*/
 
 #pragma mark - Custom Methods
 

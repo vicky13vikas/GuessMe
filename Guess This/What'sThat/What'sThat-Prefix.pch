@@ -16,7 +16,7 @@
 	#import "databaseFile.h"
     #import "RageIAPHelper.h"
 #import "SVProgressHUD.h"
-#import "ShareKitFile.h"
+//#import "ShareKitFile.h"
 #import "LevelViewController.h"
 #import "BDMultiDownloader.h"
 #import "DocDirectory.h"
@@ -24,7 +24,7 @@
 AppDelegate *appDelegate;
 databaseFile *objDataBase;
 DocDirectory *objDocDir;
-ShareKitFile *objShareKit;
+//ShareKitFile *objShareKit;
 
 LevelViewController *objLevel;
 #endif

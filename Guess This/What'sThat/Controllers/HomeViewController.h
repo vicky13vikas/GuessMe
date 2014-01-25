@@ -10,10 +10,10 @@
 #import "AudioPlay.h"
 #import "OBShapedButton.h"
 #import "InfoViewController.h"
-#import "ShareKitFile.h"
+//#import "ShareKitFile.h"
 #import "LevelSetsViewController.h"
 
-@interface HomeViewController : UIViewController<ShareKitDelegate>
+@interface HomeViewController : UIViewController
 {
     InfoViewController *objInfo;
     
