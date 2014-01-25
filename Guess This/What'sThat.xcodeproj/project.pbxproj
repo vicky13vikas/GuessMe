@@ -109,12 +109,13 @@
 		4E50997218918E790073E53E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E50997018918E790073E53E /* EventKit.framework */; };
 		4E50997318918E790073E53E /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E50997118918E790073E53E /* EventKitUI.framework */; };
 		4E98A929188EC31A0075E634 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98A928188EC31A0075E634 /* Social.framework */; };
-		4EA7582B1893D7ED00ABDD7E /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA7581A1893D7ED00ABDD7E /* libGoogleAdMobAds.a */; };
-		4EA7582C1893D7ED00ABDD7E /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4EA7581B1893D7ED00ABDD7E /* README.txt */; };
-		4EA7582D1893D7ED00ABDD7E /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA758231893D7ED00ABDD7E /* libGoogleAnalyticsServices.a */; };
-		4EA7582E1893D7ED00ABDD7E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA758251893D7ED00ABDD7E /* libTestFlight.a */; };
-		4EA7582F1893D7ED00ABDD7E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4EA758261893D7ED00ABDD7E /* README.md */; };
-		4EA758301893D7ED00ABDD7E /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4EA758271893D7ED00ABDD7E /* release_notes.md */; };
+		4E9B3E991894268100F0080F /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9B3E881894268000F0080F /* libGoogleAdMobAds.a */; };
+		4E9B3E9A1894268100F0080F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E9B3E891894268000F0080F /* README.txt */; };
+		4E9B3E9B1894268100F0080F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9B3E911894268100F0080F /* libGoogleAnalyticsServices.a */; };
+		4E9B3E9C1894268100F0080F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9B3E931894268100F0080F /* libTestFlight.a */; };
+		4E9B3E9D1894268100F0080F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E9B3E941894268100F0080F /* README.md */; };
+		4E9B3E9E1894268100F0080F /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E9B3E951894268100F0080F /* release_notes.md */; };
+		4EA758321893DFD400ABDD7E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA758311893DFD400ABDD7E /* FacebookSDK.framework */; };
 		4EBD99531892A970008C2673 /* play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD99521892A970008C2673 /* play-icon.png */; };
 		4EDB4B76188D909300ABEDDF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4B75188D909300ABEDDF /* libz.dylib */; };
 		84BA9590175DF640005C23E4 /* bonusBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84BA958E175DF640005C23E4 /* bonusBg@2x.png */; };
@@ -349,30 +350,31 @@
 		4E50997018918E790073E53E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		4E50997118918E790073E53E /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		4E98A928188EC31A0075E634 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		4EA758111893D7ED00ABDD7E /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		4EA758121893D7ED00ABDD7E /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		4EA758131893D7ED00ABDD7E /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		4EA758141893D7ED00ABDD7E /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		4EA758151893D7ED00ABDD7E /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		4EA758161893D7ED00ABDD7E /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		4EA758171893D7ED00ABDD7E /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		4EA758181893D7ED00ABDD7E /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		4EA758191893D7ED00ABDD7E /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		4EA7581A1893D7ED00ABDD7E /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		4EA7581B1893D7ED00ABDD7E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		4EA7581D1893D7ED00ABDD7E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		4EA7581E1893D7ED00ABDD7E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		4EA7581F1893D7ED00ABDD7E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		4EA758201893D7ED00ABDD7E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		4EA758211893D7ED00ABDD7E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		4EA758221893D7ED00ABDD7E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		4EA758231893D7ED00ABDD7E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		4EA758251893D7ED00ABDD7E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		4EA758261893D7ED00ABDD7E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		4EA758271893D7ED00ABDD7E /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		4EA758281893D7ED00ABDD7E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		4EA758291893D7ED00ABDD7E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		4EA7582A1893D7ED00ABDD7E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		4E9B3E7F1894268000F0080F /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		4E9B3E801894268000F0080F /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		4E9B3E811894268000F0080F /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		4E9B3E821894268000F0080F /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		4E9B3E831894268000F0080F /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		4E9B3E841894268000F0080F /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		4E9B3E851894268000F0080F /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		4E9B3E861894268000F0080F /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		4E9B3E871894268000F0080F /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		4E9B3E881894268000F0080F /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		4E9B3E891894268000F0080F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4E9B3E8B1894268000F0080F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		4E9B3E8C1894268000F0080F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		4E9B3E8D1894268000F0080F /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		4E9B3E8E1894268000F0080F /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		4E9B3E8F1894268100F0080F /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		4E9B3E901894268100F0080F /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		4E9B3E911894268100F0080F /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		4E9B3E931894268100F0080F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		4E9B3E941894268100F0080F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4E9B3E951894268100F0080F /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		4E9B3E961894268100F0080F /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		4E9B3E971894268100F0080F /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		4E9B3E981894268100F0080F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		4EA758311893DFD400ABDD7E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		4EBD99521892A970008C2673 /* play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-icon.png"; sourceTree = "<group>"; };
 		4EDB4B75188D909300ABEDDF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		84BA958E175DF640005C23E4 /* bonusBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bonusBg@2x.png"; sourceTree = "<group>"; };
@@ -511,26 +513,27 @@
 				4E50997218918E790073E53E /* EventKit.framework in Frameworks */,
 				4E50997318918E790073E53E /* EventKitUI.framework in Frameworks */,
 				4E50996F18918E660073E53E /* CoreMedia.framework in Frameworks */,
+				4E9B3E9B1894268100F0080F /* libGoogleAnalyticsServices.a in Frameworks */,
 				D8DE21D31740B042005BC015 /* CoreGraphics.framework in Frameworks */,
 				480E7CEF1742028A00BE61E4 /* AVFoundation.framework in Frameworks */,
 				E85C065917571BE400666373 /* AudioToolbox.framework in Frameworks */,
 				38A30E331761DF5000B36205 /* AdSupport.framework in Frameworks */,
 				4E50996D18918D9E0073E53E /* CoreTelephony.framework in Frameworks */,
 				0910499A188F81CF002D1958 /* CoreData.framework in Frameworks */,
-				4EA7582E1893D7ED00ABDD7E /* libTestFlight.a in Frameworks */,
 				4E98A929188EC31A0075E634 /* Social.framework in Frameworks */,
 				4EDB4B76188D909300ABEDDF /* libz.dylib in Frameworks */,
 				3879850817683D0F00A4D830 /* MessageUI.framework in Frameworks */,
 				380D62A8176096FD00DAFD00 /* Security.framework in Frameworks */,
-				4EA7582D1893D7ED00ABDD7E /* libGoogleAnalyticsServices.a in Frameworks */,
 				38A30E371761DF6C00B36205 /* libsqlite3.dylib in Frameworks */,
+				4E9B3E991894268100F0080F /* libGoogleAdMobAds.a in Frameworks */,
 				38A30E351761DF5700B36205 /* Accounts.framework in Frameworks */,
 				D896B717175E0B530049C456 /* MediaPlayer.framework in Frameworks */,
+				4E9B3E9C1894268100F0080F /* libTestFlight.a in Frameworks */,
 				481E670C174B9BF300DAA8DB /* QuartzCore.framework in Frameworks */,
-				4EA7582B1893D7ED00ABDD7E /* libGoogleAdMobAds.a in Frameworks */,
 				48D1B44917410B11001A4C86 /* SystemConfiguration.framework in Frameworks */,
 				48D1B44717410844001A4C86 /* StoreKit.framework in Frameworks */,
 				48D1B43A1740F12D001A4C86 /* libsqlite3.0.dylib in Frameworks */,
+				4EA758321893DFD400ABDD7E /* FacebookSDK.framework in Frameworks */,
 				092C24D918923DB400B8C403 /* AdColony.framework in Frameworks */,
 				D8DE21CF1740B042005BC015 /* UIKit.framework in Frameworks */,
 				D8DE21D11740B042005BC015 /* Foundation.framework in Frameworks */,
@@ -751,49 +754,49 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		4EA758101893D7ED00ABDD7E /* GoogleAdMobAdsSdkiOS */ = {
+		4E9B3E7E1894268000F0080F /* GoogleAdMobAdsSdkiOS */ = {
 			isa = PBXGroup;
 			children = (
-				4EA758111893D7ED00ABDD7E /* GADAdMobExtras.h */,
-				4EA758121893D7ED00ABDD7E /* GADAdNetworkExtras.h */,
-				4EA758131893D7ED00ABDD7E /* GADAdSize.h */,
-				4EA758141893D7ED00ABDD7E /* GADBannerView.h */,
-				4EA758151893D7ED00ABDD7E /* GADBannerViewDelegate.h */,
-				4EA758161893D7ED00ABDD7E /* GADInterstitial.h */,
-				4EA758171893D7ED00ABDD7E /* GADInterstitialDelegate.h */,
-				4EA758181893D7ED00ABDD7E /* GADRequest.h */,
-				4EA758191893D7ED00ABDD7E /* GADRequestError.h */,
-				4EA7581A1893D7ED00ABDD7E /* libGoogleAdMobAds.a */,
-				4EA7581B1893D7ED00ABDD7E /* README.txt */,
+				4E9B3E7F1894268000F0080F /* GADAdMobExtras.h */,
+				4E9B3E801894268000F0080F /* GADAdNetworkExtras.h */,
+				4E9B3E811894268000F0080F /* GADAdSize.h */,
+				4E9B3E821894268000F0080F /* GADBannerView.h */,
+				4E9B3E831894268000F0080F /* GADBannerViewDelegate.h */,
+				4E9B3E841894268000F0080F /* GADInterstitial.h */,
+				4E9B3E851894268000F0080F /* GADInterstitialDelegate.h */,
+				4E9B3E861894268000F0080F /* GADRequest.h */,
+				4E9B3E871894268000F0080F /* GADRequestError.h */,
+				4E9B3E881894268000F0080F /* libGoogleAdMobAds.a */,
+				4E9B3E891894268000F0080F /* README.txt */,
 			);
 			name = GoogleAdMobAdsSdkiOS;
 			path = "What'sThat/CustomClass/GoogleAdMobAdsSdkiOS";
 			sourceTree = "<group>";
 		};
-		4EA7581C1893D7ED00ABDD7E /* GoogleAnalytics */ = {
+		4E9B3E8A1894268000F0080F /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				4EA7581D1893D7ED00ABDD7E /* GAI.h */,
-				4EA7581E1893D7ED00ABDD7E /* GAIDictionaryBuilder.h */,
-				4EA7581F1893D7ED00ABDD7E /* GAIFields.h */,
-				4EA758201893D7ED00ABDD7E /* GAILogger.h */,
-				4EA758211893D7ED00ABDD7E /* GAITrackedViewController.h */,
-				4EA758221893D7ED00ABDD7E /* GAITracker.h */,
-				4EA758231893D7ED00ABDD7E /* libGoogleAnalyticsServices.a */,
+				4E9B3E8B1894268000F0080F /* GAI.h */,
+				4E9B3E8C1894268000F0080F /* GAIDictionaryBuilder.h */,
+				4E9B3E8D1894268000F0080F /* GAIFields.h */,
+				4E9B3E8E1894268000F0080F /* GAILogger.h */,
+				4E9B3E8F1894268100F0080F /* GAITrackedViewController.h */,
+				4E9B3E901894268100F0080F /* GAITracker.h */,
+				4E9B3E911894268100F0080F /* libGoogleAnalyticsServices.a */,
 			);
 			name = GoogleAnalytics;
 			path = "What'sThat/CustomClass/GoogleAnalytics";
 			sourceTree = "<group>";
 		};
-		4EA758241893D7ED00ABDD7E /* TestFlightSDK2.1.4 */ = {
+		4E9B3E921894268100F0080F /* TestFlightSDK2.1.4 */ = {
 			isa = PBXGroup;
 			children = (
-				4EA758251893D7ED00ABDD7E /* libTestFlight.a */,
-				4EA758261893D7ED00ABDD7E /* README.md */,
-				4EA758271893D7ED00ABDD7E /* release_notes.md */,
-				4EA758281893D7ED00ABDD7E /* TestFlight+AsyncLogging.h */,
-				4EA758291893D7ED00ABDD7E /* TestFlight+ManualSessions.h */,
-				4EA7582A1893D7ED00ABDD7E /* TestFlight.h */,
+				4E9B3E931894268100F0080F /* libTestFlight.a */,
+				4E9B3E941894268100F0080F /* README.md */,
+				4E9B3E951894268100F0080F /* release_notes.md */,
+				4E9B3E961894268100F0080F /* TestFlight+AsyncLogging.h */,
+				4E9B3E971894268100F0080F /* TestFlight+ManualSessions.h */,
+				4E9B3E981894268100F0080F /* TestFlight.h */,
 			);
 			name = TestFlightSDK2.1.4;
 			path = "What'sThat/CustomClass/TestFlightSDK2.1.4";
@@ -932,9 +935,10 @@
 		D8DE21CD1740B042005BC015 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EA758101893D7ED00ABDD7E /* GoogleAdMobAdsSdkiOS */,
-				4EA7581C1893D7ED00ABDD7E /* GoogleAnalytics */,
-				4EA758241893D7ED00ABDD7E /* TestFlightSDK2.1.4 */,
+				4E9B3E7E1894268000F0080F /* GoogleAdMobAdsSdkiOS */,
+				4E9B3E8A1894268000F0080F /* GoogleAnalytics */,
+				4E9B3E921894268100F0080F /* TestFlightSDK2.1.4 */,
+				4EA758311893DFD400ABDD7E /* FacebookSDK.framework */,
 				092C24D818923DB400B8C403 /* AdColony.framework */,
 				4E50997018918E790073E53E /* EventKit.framework */,
 				4E50997118918E790073E53E /* EventKitUI.framework */,
@@ -1299,6 +1303,7 @@
 				D8108A9317434ADF005CFA76 /* hint3.png in Resources */,
 				D8108A9417434ADF005CFA76 /* quizCloudbg.png in Resources */,
 				D8108A9517434ADF005CFA76 /* score.png in Resources */,
+				4E9B3E9D1894268100F0080F /* README.md in Resources */,
 				D8108A9617434ADF005CFA76 /* star.png in Resources */,
 				D8108A9717434ADF005CFA76 /* textFieldBg.png in Resources */,
 				D8108A9817434ADF005CFA76 /* titleLevelBg.png in Resources */,
@@ -1331,7 +1336,6 @@
 				48D02F1D174A2340006D6DD6 /* hint3Bg@2x.png in Resources */,
 				48D02F1E174A2340006D6DD6 /* inappBg@2x.png in Resources */,
 				48D02F1F174A2340006D6DD6 /* okBtnBg-hint1@2x.png in Resources */,
-				4EA7582C1893D7ED00ABDD7E /* README.txt in Resources */,
 				48D02F20174A2340006D6DD6 /* okBtnBg-hint2@2x.png in Resources */,
 				48D02F21174A2340006D6DD6 /* okBtnBg-hint3@2x.png in Resources */,
 				48D02F22174A2340006D6DD6 /* radioNormal@2x.png in Resources */,
@@ -1365,8 +1369,6 @@
 				E8FB42941758936000EAAAAF /* blueBg.png in Resources */,
 				E8FB42951758936000EAAAAF /* btnBgCancel.png in Resources */,
 				E8FB42961758936000EAAAAF /* btnBgContinue.png in Resources */,
-				4EA758301893D7ED00ABDD7E /* release_notes.md in Resources */,
-				4EA7582F1893D7ED00ABDD7E /* README.md in Resources */,
 				E8FB42971758936000EAAAAF /* musicIconMute.png in Resources */,
 				E8FB42981758936000EAAAAF /* musicIconNormal.png in Resources */,
 				E8FB42991758936000EAAAAF /* SoundIconMute.png in Resources */,
@@ -1415,6 +1417,7 @@
 				D812790D176B4DFD00236E04 /* infoPlayLarge@2x.png in Resources */,
 				38E918A517C78BCD00298D1A /* btnRate.png in Resources */,
 				38E918A717C78BD600298D1A /* btnRate@2x.png in Resources */,
+				4E9B3E9E1894268100F0080F /* release_notes.md in Resources */,
 				382B6EBF17CDC02F00080519 /* LevelSetsViewController.xib in Resources */,
 				389CC56617D0A13F00C35710 /* LevelSetsCustomCell.xib in Resources */,
 				389CC56C17D0A4E900C35710 /* set1Background.png in Resources */,
@@ -1438,6 +1441,7 @@
 				389E334B17D7569A000DEEF4 /* MyriadPro-Regular_2.otf in Resources */,
 				389E334C17D7569A000DEEF4 /* MyriadPro-Semibold_2.otf in Resources */,
 				38850AE0183E2CE10010BACC /* Icon-120.png in Resources */,
+				4E9B3E9A1894268100F0080F /* README.txt in Resources */,
 				4E509926189164240073E53E /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1597,6 +1601,10 @@
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAdMobAdsSdkiOS /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/TestFlightSDK2.1.4",
 				);
@@ -1650,6 +1658,10 @@
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAdMobAdsSdkiOS /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAnalytics",

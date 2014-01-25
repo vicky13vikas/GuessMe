@@ -9,10 +9,16 @@
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
+{
+    BOOL isFacebookLoggedin;
+    BOOL bHaveRequestedPublishPermissions;
+    FBSession *activeSession;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAdMobVideo;
 
 - (IBAction)playAdMobVideo:(id)sender;
+- (IBAction)btnScoresClicked:(id)sender;
 
 
 @end
@@ -371,4 +377,144 @@
 - (void)zoneLoading {
 //    _isAddAvailable = NO;
 }
+
+
+#pragma -mark Facebook LeaderBoard
+
+- (IBAction)btnScoresClicked:(id)sender
+{
+    [self faceBookLogin];
+}
+
+-(void)CreateNewSession
+{
+    activeSession = [[FBSession alloc] init];
+    [FBSession setActiveSession: activeSession];
+}
+
+-(void)OpenSession
+{
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"email",
+                            @"basic_info",
+                            @"public_profile",
+                            @"user_friends",
+                            nil];
+    
+    // Attempt to open the session. If the session is not open, show the user the Facebook login UX
+    [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        
+        // Did something go wrong during login? I.e. did the user cancel?
+        
+        if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] != NSNotFound)) {
+            bHaveRequestedPublishPermissions = YES;
+        }
+        
+        if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateClosed || status == FBSessionStateCreatedOpening) {
+            isFacebookLoggedin = false;
+        }
+        else {
+            isFacebookLoggedin = true;
+            [self showLeaderBoard];
+        }
+    }];
+}
+
+-(void)fetchUserDetails
+{
+    NSString *FBUserName = [[NSUserDefaults standardUserDefaults] objectForKey:FB_USER_NAME];
+    NSString *FBUserID = [[NSUserDefaults standardUserDefaults] objectForKey:FB_USER_ID];
+    
+    if(!FBUserName || !FBUserID)
+    {
+        [[FBRequest requestForMe]
+         startWithCompletionHandler:
+         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
+         {
+             // Did everything come back okay with no errors?
+             if (!error && result) {
+                 [[NSUserDefaults standardUserDefaults] setObject:[[NSString alloc] initWithString:result.first_name] forKey:FB_USER_NAME];
+                 [[NSUserDefaults standardUserDefaults] setObject:[[NSString alloc] initWithString:result.id] forKey:FB_USER_ID];
+                 [[NSUserDefaults standardUserDefaults] synchronize];
+                 [self updateCurrentScore];
+             }
+             else {
+                 
+             }
+         }];
+    }
+    else
+    {
+        if(bHaveRequestedPublishPermissions)
+            [self updateCurrentScore];
+        else
+            [self RequestWritePermissions];
+    }
+}
+
+-(void)updateCurrentScore
+{
+    int totalCurrentScore = appDelegate.intTotalScore + [appDelegate getExtraPoints];
+
+    NSString *FBUserID = [[NSUserDefaults standardUserDefaults] objectForKey:FB_USER_ID];
+    NSMutableDictionary* params =   [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                     [NSString stringWithFormat:@"%d", totalCurrentScore], @"score",
+                                     nil];
+    
+    [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/scores", FBUserID] parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        NSLog(@"Score posted");
+        [self getScoresOfFriends];
+    }];
+}
+
+-(void)getScoresOfFriends
+{
+    [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/scores?fields=user,score", FB_APPID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        NSLog(@"Score posted");
+    }];
+}
+	
+-(void)RequestWritePermissions  
+{
+    if (!bHaveRequestedPublishPermissions)
+    {
+        bHaveRequestedPublishPermissions = true;
+
+        NSArray *permissions = [[NSArray alloc] initWithObjects:
+                                @"publish_actions", nil];
+        
+        [[FBSession activeSession] requestNewPublishPermissions:permissions defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
+            NSLog(@"Reauthorized with publish permissions.");
+            [self updateCurrentScore];
+        }];
+        
+    }
+}
+
+-(void)showLeaderBoard
+{
+    [self fetchUserDetails];
+}
+
+-(void)faceBookLogin
+{
+    if(!isFacebookLoggedin)
+    {
+        [self CreateNewSession];
+        [self OpenSession];
+    }
+    else
+    {
+        [self showLeaderBoard];
+    }
+}
+
+-(void)faceBookErrorMessage
+{
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:@"Error Connecting To Facebook" delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [errorAlert show];
+}
+
 @end

@@ -37,17 +37,16 @@
 			<string>com.mobile.guesswhat</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb170313943139707</string>
-				<string></string>
+				<string>fb720917697919102</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.4</string>
 	<key>FacebookAppID</key>
-	<string>170313943139707</string>
+	<string>720917697919102</string>
 	<key>FacebookDisplayName</key>
-	<string>Guess This</string>
+	<string>GuessWhat</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>

@@ -162,7 +162,7 @@
 //#define FB_APP_SECRET @"2ccd1353acef3f29e581f15920d27310"
 
 //Client
-#define FB_APPID @"170313943139707"
+#define FB_APPID @"720917697919102"
 #define FB_APP_SECRET @"2b9cbdae069732d13bba4926e2cfc28f"
 #define APP_ID @"657293868"
 
@@ -184,6 +184,9 @@
 
 #define PRODUCT_ID_REMOVE_ADS @"com.mobile.guesswhat.removeads"
 
+
+#define FB_USER_NAME @"fbUserName"
+#define FB_USER_ID @"fbUserId"
 
 @interface Constant : NSObject 
 {

@@ -124,6 +124,8 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
     }
 //    [self callRateIt];
   launchTime = [NSDate date];
+    
+    [FBAppCall handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -158,6 +160,13 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
 {
 //    NSLog(@"open url");
 //    return [objShareKit._facebook handleOpenURL:url];
+    
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
+    
 }
 
 #pragma mark - Interface Orientation

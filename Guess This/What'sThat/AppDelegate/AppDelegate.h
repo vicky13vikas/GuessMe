@@ -19,7 +19,7 @@
 #import "GADBannerViewDelegate.h"
 #import "GADRequest.h"
 #import <AdColony/AdColony.h>
-
+#import <FacebookSDK/FacebookSDK.h>
 
 typedef enum
 {
