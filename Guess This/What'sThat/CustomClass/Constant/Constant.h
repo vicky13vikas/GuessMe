@@ -182,7 +182,7 @@
 #define kZoneOff @"ZoneOff"
 #define kVideoFinished @"VideoFinished"
 
-#define PRODUCT_ID_REMOVE_ADS @"com.mobile.guesswhat.500Star"
+#define PRODUCT_ID_REMOVE_ADS @"com.mobile.guesswhat.removeads"
 
 
 @interface Constant : NSObject 

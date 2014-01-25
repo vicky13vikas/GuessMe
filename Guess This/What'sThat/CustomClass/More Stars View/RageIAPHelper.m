@@ -21,6 +21,7 @@
                                       @"com.mobile.guesswhat.10000Stars",
                                       @"com.mobile.guesswhat.25000Stars",
                                       @"com.mobile.guesswhat.35000Stars",
+                                      @"com.mobile.guesswhat.removeads",
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });
