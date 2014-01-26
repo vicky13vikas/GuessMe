@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "LeaderViewController.h"
 
 @interface HomeViewController ()
 {
@@ -396,9 +397,6 @@
 {
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"email",
-                            @"basic_info",
-                            @"public_profile",
-                            @"user_friends",
                             nil];
     
     // Attempt to open the session. If the session is not open, show the user the Facebook login UX
@@ -472,7 +470,13 @@
 {
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/scores?fields=user,score", FB_APPID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         
-        NSLog(@"Score posted");
+        NSLog(@"Score List Received");
+        if(!error)
+        {
+            [SVProgressHUD dismiss];
+
+            [self showScoresData:result];
+        }
     }];
 }
 	
@@ -498,8 +502,16 @@
     [self fetchUserDetails];
 }
 
+-(void)showScoresData:(id)scoresList
+{
+    LeaderViewController *leaderViewControler = [[LeaderViewController alloc]initWithNibName:@"LeaderViewController" bundle:nil];
+    leaderViewControler.scoresList = scoresList;
+    [self.navigationController pushViewController:leaderViewControler animated:YES];
+}
+
 -(void)faceBookLogin
 {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     if(!isFacebookLoggedin)
     {
         [self CreateNewSession];
@@ -515,6 +527,8 @@
 {
     UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:@"Error Connecting To Facebook" delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
     [errorAlert show];
+    
+    [SVProgressHUD dismiss];
 }
 
 @end

@@ -171,11 +171,11 @@
 //#define FB_APPID  @"250940308357307"
 //#define FB_APP_SECRET  @"20b1cf814566e38b5a39e5b4cc66b5ff"
 
-#define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
-//#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
+//#define ADMOB_UNIT_ID @"a152dcc1c74d58e"     //AdMob
+#define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
 
-#define ADCOLONY_APPID @"appbdee68ae27024084bb334a"
-#define ADCOLONY_ZONE_IDS @[@"vzf8fb4670a60e4a139d01b5", @"vzf8e4e97704c4445c87504e"]
+#define ADCOLONY_APPID @"appac12d42fa34d489aaa"
+#define ADCOLONY_ZONE_IDS @[@"v4vc67e3739746df4862a5"]
 
 #define kZoneLoading @"ZoneLoading"
 #define kZoneReady @"ZoneReady"
