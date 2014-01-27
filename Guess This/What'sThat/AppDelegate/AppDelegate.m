@@ -2149,13 +2149,13 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     if(isRequired)
     {
         [appDelegate.objAudio stopAudio];
-        [AdColony playVideoAdForZone:@"v4vc67e3739746df4862a5" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+        [AdColony playVideoAdForZone:ADCOLONY_ZONE_ID_1 withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
         return;
     }
     if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
     {
         [appDelegate.objAudio stopAudio];
-        [AdColony playVideoAdForZone:@"v4vc67e3739746df4862a5" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+        [AdColony playVideoAdForZone:ADCOLONY_ZONE_ID_1 withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
     }
 }
 

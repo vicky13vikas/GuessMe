@@ -11,7 +11,7 @@
 
 @interface LeaderViewController () <UITableViewDataSource, UITableViewDelegate>
 {
-    NSMutableArray *sortedScoreList;
+    NSArray *sortedScoreList;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *leaderTableView;
@@ -38,19 +38,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    
-    sortedScoreList = [[NSMutableArray alloc] init];
+//    sortedScoreList = [[NSMutableArray alloc] init];
 
     [self parseScoresList];
 }
 
 -(void)parseScoresList
 {
-    NSLog(@"%d",[((FBGraphObject*)_scoresList) count]);
-    NSLog(@"%@",[((FBGraphObject*)_scoresList) objectForKey:@"data"]);
     NSArray *actualList = [_scoresList objectForKey:@"data"];
-    NSLog(@"%d",actualList.count);
-    
-    sortedScoreList = [[_scoresList objectForKey:@"data"] copy];
+    sortedScoreList = [actualList sortedArrayUsingComparator:^(id obj1, id obj2){
+            NSInteger s1 = [[obj1 objectForKey:@"score"] integerValue];
+            NSInteger s2 = [[obj2 objectForKey:@"score"] integerValue];
+            
+            if (s1 > s2) {
+                return (NSComparisonResult)NSOrderedAscending;
+            } else if (s1 < s2) {
+                return (NSComparisonResult)NSOrderedDescending;
+        }
+        
+        // TODO: default is the same?
+        return (NSComparisonResult)NSOrderedSame;
+    }];
 
     
 //    for ()
@@ -107,7 +115,6 @@
     
     cell.lblRank.text = [NSString stringWithFormat:@"%d",indexPath.row + 1];
     cell.lblName.text = [[[sortedScoreList objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"name"];
-    NSLog(@"SCORE : %@",[[sortedScoreList objectAtIndex:indexPath.row] objectForKey:@"score"]);
     cell.lblScore.text = [NSString stringWithFormat:@"%@",[[sortedScoreList objectAtIndex:indexPath.row] objectForKey:@"score"]];
     
     return cell;

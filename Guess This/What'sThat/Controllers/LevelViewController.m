@@ -602,7 +602,7 @@
 
 -(void)buyRemoveAds
 {
-    [SVProgressHUD show];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     SKProduct *productToBuy;
     NSLog(@"appDelegate.arrayProduct::%@",[appDelegate.arrayProduct description]);

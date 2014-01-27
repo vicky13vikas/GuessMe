@@ -175,7 +175,8 @@
 #define ADMOB_UNIT_ID @"ca-app-pub-5402296631424108/3536544879"     //DFP
 
 #define ADCOLONY_APPID @"appac12d42fa34d489aaa"
-#define ADCOLONY_ZONE_IDS @[@"v4vc67e3739746df4862a5"]
+#define ADCOLONY_ZONE_ID_1 @"vz0c168666437644bc8f"
+#define ADCOLONY_ZONE_ID_2 @"v4vc67e3739746df4862a5"
 
 #define kZoneLoading @"ZoneLoading"
 #define kZoneReady @"ZoneReady"

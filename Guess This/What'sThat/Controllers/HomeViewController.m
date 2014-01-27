@@ -384,7 +384,12 @@
 
 - (IBAction)btnScoresClicked:(id)sender
 {
-    [self faceBookLogin];
+    if([appDelegate checkInternetConnection])
+        [self faceBookLogin];
+    else{
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:ALERT_INTERNET delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+        [errorAlert show];
+    }
 }
 
 -(void)CreateNewSession
@@ -403,18 +408,26 @@
     [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
         
         // Did something go wrong during login? I.e. did the user cancel?
-        
-        if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] != NSNotFound)) {
-            bHaveRequestedPublishPermissions = YES;
+        if(!error)
+        {
+            if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] != NSNotFound)) {
+                bHaveRequestedPublishPermissions = YES;
+            }
+            
+            if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateClosed || status == FBSessionStateCreatedOpening) {
+                isFacebookLoggedin = false;
+            }
+            else {
+                isFacebookLoggedin = true;
+                [self showLeaderBoard];
+            }
+        }
+        else
+        {
+            [self faceBookErrorMessage];
         }
         
-        if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateClosed || status == FBSessionStateCreatedOpening) {
-            isFacebookLoggedin = false;
-        }
-        else {
-            isFacebookLoggedin = true;
-            [self showLeaderBoard];
-        }
+
     }];
 }
 
@@ -437,7 +450,7 @@
                  [self updateCurrentScore];
              }
              else {
-                 
+                 [self faceBookErrorMessage];
              }
          }];
     }
@@ -460,8 +473,6 @@
                                      nil];
     
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/scores", FBUserID] parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        
-        NSLog(@"Score posted");
         [self getScoresOfFriends];
     }];
 }
@@ -470,12 +481,13 @@
 {
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/scores?fields=user,score", FB_APPID] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         
-        NSLog(@"Score List Received");
+        [SVProgressHUD dismiss];
         if(!error)
         {
-            [SVProgressHUD dismiss];
-
             [self showScoresData:result];
+        }
+        else{
+            [self faceBookErrorMessage];
         }
     }];
 }
