@@ -76,7 +76,7 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
     self.tracker = [[GAI sharedInstance] trackerWithName:@"GuessThis"
                                             trackingId:kTrackingId];
     
-    [AdColony configureWithAppID:ADCOLONY_APPID zoneIDs:ADCOLONY_ZONE_IDS delegate:self logging:YES];
+    [AdColony configureWithAppID:ADCOLONY_APPID zoneIDs:@[ADCOLONY_ZONE_ID_1, ADCOLONY_ZONE_ID_2] delegate:self logging:YES];
 //    [AdColony configureWithAppID:@"appc13d2e08e116402aa0" zoneIDs:@[@"vz578944a944074e918b", @"vzffbe3022d1e24064ae"] delegate:self logging:YES];
 
 
@@ -2149,13 +2149,13 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     if(isRequired)
     {
         [appDelegate.objAudio stopAudio];
-        [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+        [AdColony playVideoAdForZone:ADCOLONY_ZONE_ID_1 withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
         return;
     }
     if(![[NSUserDefaults standardUserDefaults] boolForKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED])
     {
         [appDelegate.objAudio stopAudio];
-        [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
+        [AdColony playVideoAdForZone:ADCOLONY_ZONE_ID_1 withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
     }
 }
 
