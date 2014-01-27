@@ -76,7 +76,7 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
     self.tracker = [[GAI sharedInstance] trackerWithName:@"GuessThis"
                                             trackingId:kTrackingId];
     
-    [AdColony configureWithAppID:ADCOLONY_APPID zoneIDs:ADCOLONY_ZONE_IDS delegate:self logging:YES];
+    [AdColony configureWithAppID:ADCOLONY_APPID zoneIDs:@[ADCOLONY_ZONE_ID_1, ADCOLONY_ZONE_ID_2] delegate:self logging:YES];
 //    [AdColony configureWithAppID:@"appc13d2e08e116402aa0" zoneIDs:@[@"vz578944a944074e918b", @"vzffbe3022d1e24064ae"] delegate:self logging:YES];
 
 
