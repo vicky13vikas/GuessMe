@@ -18,7 +18,7 @@
 {    
     [super viewDidLoad];
     
-    [[UIApplication sharedApplication]setStatusBarHidden:NO];
+//    [[UIApplication sharedApplication]setStatusBarHidden:NO];
 //    [[UIApplication sharedApplication]setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
   
     NSLog(@"video controller view did load");

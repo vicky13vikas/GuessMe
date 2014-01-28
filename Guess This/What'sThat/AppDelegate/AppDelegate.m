@@ -55,6 +55,8 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[UIApplication sharedApplication]setStatusBarHidden:YES];
+
     NSLog(@"didFinishLaunchingWithOptions");
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     [UIApplication sharedApplication].idleTimerDisabled = TRUE;

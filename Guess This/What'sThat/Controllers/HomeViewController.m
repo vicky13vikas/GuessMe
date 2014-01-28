@@ -548,17 +548,39 @@
 
 - (IBAction)btnInviteFriendsClicked:(id)sender
 {
-
-    NSURL* url = [NSURL URLWithString:@"https://developers.facebook.com/ios"];
-    [FBDialogs presentShareDialogWithLink:url
-                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-                                      if(error) {
-                                          NSLog(@"Error: %@", error.description);
-                                      } else {
-                                          NSLog(@"Success!");
-                                      }
-                                  }];
-    
+/*
+  FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+  params.link = [NSURL URLWithString:@"https://developers.facebook.com/ios"];
+  params.picture = [NSURL URLWithString:@"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png"];
+  params.name = @"Facebook SDK for iOS";
+  params.caption = @"Build great apps";
+  
+  [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+    if(error) {
+      NSLog(@"Error: %@", error.description);
+    } else {
+      NSLog(@"Success!");
+    }
+  }];
+  
+*/
+ 
+  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 @"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8", @"link",
+                                 @"Guess This", @"name",
+//                                 @"https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/t1/q71/1175465_1485709428322583_1129674368_n.jpg",@"picture",
+                                 @"I'm playing Guess This for iOS. Join my leaderboard!", @"message",
+                                 @"Guess This is a social puzzle game, just match the pictures to a word or phrase.", @"caption",nil];
+  
+  FBRequest* req = [FBRequest requestWithGraphPath:[@"/100006506190818/feed?access_token=" stringByAppendingString:[[[FBSession activeSession] accessTokenData] accessToken]] parameters:params HTTPMethod:@"POST"];
+  [req startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+   {
+     if (!error)
+     {
+//       [self.navigationController popViewControllerAnimated:YES];
+     }
+   }];
+  
 /*
     FBFriendPickerViewController *fbFriendPicker = [[FBFriendPickerViewController alloc] init];
     fbFriendPicker.title = @"Select Friends";
