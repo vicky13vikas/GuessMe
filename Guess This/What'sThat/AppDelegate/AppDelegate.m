@@ -2174,11 +2174,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 	if (success)
     {
-        int numberOfTimesVideoSeen = [[[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULTS_USER_COMPLETED_VIDEO] intValue];
-        [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d",numberOfTimesVideoSeen+1] forKey:USERDEFAULTS_USER_COMPLETED_VIDEO];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kVideoFinished object:nil];
+      
 	}
     else
     {
@@ -2206,6 +2202,12 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 - ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID
 {
     [self checkMuteEffectAndPlayMusic];
+    
+    int numberOfTimesVideoSeen = [[[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULTS_USER_COMPLETED_VIDEO] intValue];
+    [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d",numberOfTimesVideoSeen+1] forKey:USERDEFAULTS_USER_COMPLETED_VIDEO];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kVideoFinished object:nil];
 }
 
 @end

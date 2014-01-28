@@ -9,17 +9,19 @@
 #import "HomeViewController.h"
 #import "LeaderViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <FBFriendPickerDelegate>
 {
     BOOL isFacebookLoggedin;
     BOOL bHaveRequestedPublishPermissions;
     FBSession *activeSession;
+    NSArray *selectedFBFriends;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAdMobVideo;
 
 - (IBAction)playAdMobVideo:(id)sender;
 - (IBAction)btnScoresClicked:(id)sender;
+- (IBAction)btnInviteFriendsClicked:(id)sender;
 
 
 @end
@@ -379,7 +381,6 @@
 //    _isAddAvailable = NO;
 }
 
-
 #pragma -mark Facebook LeaderBoard
 
 - (IBAction)btnScoresClicked:(id)sender
@@ -391,6 +392,8 @@
         [errorAlert show];
     }
 }
+
+
 
 -(void)CreateNewSession
 {
@@ -543,4 +546,76 @@
     [SVProgressHUD dismiss];
 }
 
+- (IBAction)btnInviteFriendsClicked:(id)sender
+{
+
+    NSURL* url = [NSURL URLWithString:@"https://developers.facebook.com/ios"];
+    [FBDialogs presentShareDialogWithLink:url
+                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                      if(error) {
+                                          NSLog(@"Error: %@", error.description);
+                                      } else {
+                                          NSLog(@"Success!");
+                                      }
+                                  }];
+    
+/*
+    FBFriendPickerViewController *fbFriendPicker = [[FBFriendPickerViewController alloc] init];
+    fbFriendPicker.title = @"Select Friends";
+    fbFriendPicker.session = [FBSession activeSession];
+    fbFriendPicker.delegate = self;
+    fbFriendPicker.allowsMultipleSelection = YES;
+    [fbFriendPicker loadData];
+    [fbFriendPicker presentModallyFromViewController:self animated:YES handler:nil];
+    selectedFBFriends = nil;
+ */
+}
+
+- (void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker
+{
+    selectedFBFriends = friendPicker.selection;
+}
+
+- (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
+                 shouldIncludeUser:(id <FBGraphUser>)user
+{
+    return YES;
+}
+
+- (void)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
+                       handleError:(NSError *)error
+{
+    
+}
+
+- (void)facebookViewControllerCancelWasPressed:(id)sender
+{
+    
+}
+
+- (void)facebookViewControllerDoneWasPressed:(id)sender
+{
+    if(selectedFBFriends.count > 0)
+        [self postToFriendsWall];
+}
+
+-(void)postToFriendsWall
+{
+    for (int i = 0; i<selectedFBFriends.count; i++)
+    {
+        NSString *friendID = [selectedFBFriends[i] valueForKey:@"id"];
+        
+        NSMutableDictionary* params =   [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         @"http://geektechnolab.com/", @"link",
+                                         @"Try out this awesome game", @"message",
+                                         nil];
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/feed", friendID] parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if(error)
+            {
+                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:@"Error Posting on Walls" delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+                [errorAlert show];
+            }
+        }];
+    }
+}
 @end

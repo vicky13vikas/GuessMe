@@ -75,6 +75,8 @@
     [appDelegate invalidateCloudAnimationTimer];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kVideoFinished object:nil];
+    [[self.view viewWithTag:TAG_VIEW_FOR_AD] removeFromSuperview];
+    [self btnHintOkClicked:nil];
 }
 
 #pragma mark - Interface Orientaion
@@ -907,7 +909,7 @@
             
             break;            
         case 3:
-            [appDelegate showAdColonyVideoIsRequired:NO];
+            [appDelegate performSelector:@selector(showAdColonyVideoIsRequired:) withObject:[NSNumber numberWithBool:NO] afterDelay:3.0];
 
             imgHintBackground.image = [UIImage imageNamed:@"hint3Bg.png"];
             [btnHintView setBackgroundImage:[UIImage imageNamed:@"okBtnBg-hint3.png"] forState:UIControlStateNormal];

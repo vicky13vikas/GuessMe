@@ -102,12 +102,12 @@
 		48D1B4421741081C001A4C86 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D1B4411741081C001A4C86 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		48D1B44717410844001A4C86 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D1B44617410844001A4C86 /* StoreKit.framework */; };
 		48D1B44917410B11001A4C86 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D1B44817410B11001A4C86 /* SystemConfiguration.framework */; };
-		4E3244E118969AE400E5ABEA /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3244D018969AE400E5ABEA /* libGoogleAdMobAds.a */; };
-		4E3244E218969AE400E5ABEA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E3244D118969AE400E5ABEA /* README.txt */; };
-		4E3244E318969AE400E5ABEA /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3244D918969AE400E5ABEA /* libGoogleAnalyticsServices.a */; };
-		4E3244E418969AE400E5ABEA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3244DB18969AE400E5ABEA /* libTestFlight.a */; };
-		4E3244E518969AE400E5ABEA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E3244DC18969AE400E5ABEA /* README.md */; };
-		4E3244E618969AE400E5ABEA /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E3244DD18969AE400E5ABEA /* release_notes.md */; };
+		4E2EC1BD18974B2200A75F76 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2EC1AC18974B2200A75F76 /* libGoogleAdMobAds.a */; };
+		4E2EC1BE18974B2200A75F76 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E2EC1AD18974B2200A75F76 /* README.txt */; };
+		4E2EC1BF18974B2200A75F76 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2EC1B518974B2200A75F76 /* libGoogleAnalyticsServices.a */; };
+		4E2EC1C018974B2200A75F76 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2EC1B718974B2200A75F76 /* libTestFlight.a */; };
+		4E2EC1C118974B2300A75F76 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E2EC1B818974B2200A75F76 /* README.md */; };
+		4E2EC1C218974B2300A75F76 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E2EC1B918974B2200A75F76 /* release_notes.md */; };
 		4E3244EA18969B3A00E5ABEA /* LeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3244E818969B3A00E5ABEA /* LeaderViewController.m */; };
 		4E3244EB18969B3A00E5ABEA /* LeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E3244E918969B3A00E5ABEA /* LeaderViewController.xib */; };
 		4E3244EF18969B4F00E5ABEA /* LeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3244ED18969B4F00E5ABEA /* LeaderViewCell.m */; };
@@ -347,30 +347,30 @@
 		48D1B4411741081C001A4C86 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		48D1B44617410844001A4C86 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		48D1B44817410B11001A4C86 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4E3244C718969AE400E5ABEA /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		4E3244C818969AE400E5ABEA /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		4E3244C918969AE400E5ABEA /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		4E3244CA18969AE400E5ABEA /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		4E3244CB18969AE400E5ABEA /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		4E3244CC18969AE400E5ABEA /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		4E3244CD18969AE400E5ABEA /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		4E3244CE18969AE400E5ABEA /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		4E3244CF18969AE400E5ABEA /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		4E3244D018969AE400E5ABEA /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		4E3244D118969AE400E5ABEA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		4E3244D318969AE400E5ABEA /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		4E3244D418969AE400E5ABEA /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		4E3244D518969AE400E5ABEA /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		4E3244D618969AE400E5ABEA /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		4E3244D718969AE400E5ABEA /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		4E3244D818969AE400E5ABEA /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		4E3244D918969AE400E5ABEA /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		4E3244DB18969AE400E5ABEA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		4E3244DC18969AE400E5ABEA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		4E3244DD18969AE400E5ABEA /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		4E3244DE18969AE400E5ABEA /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		4E3244DF18969AE400E5ABEA /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		4E3244E018969AE400E5ABEA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		4E2EC1A318974B2200A75F76 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		4E2EC1A418974B2200A75F76 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		4E2EC1A518974B2200A75F76 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		4E2EC1A618974B2200A75F76 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		4E2EC1A718974B2200A75F76 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		4E2EC1A818974B2200A75F76 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		4E2EC1A918974B2200A75F76 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		4E2EC1AA18974B2200A75F76 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		4E2EC1AB18974B2200A75F76 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		4E2EC1AC18974B2200A75F76 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		4E2EC1AD18974B2200A75F76 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4E2EC1AF18974B2200A75F76 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		4E2EC1B018974B2200A75F76 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		4E2EC1B118974B2200A75F76 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		4E2EC1B218974B2200A75F76 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		4E2EC1B318974B2200A75F76 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		4E2EC1B418974B2200A75F76 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		4E2EC1B518974B2200A75F76 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		4E2EC1B718974B2200A75F76 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		4E2EC1B818974B2200A75F76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4E2EC1B918974B2200A75F76 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		4E2EC1BA18974B2200A75F76 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		4E2EC1BB18974B2200A75F76 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		4E2EC1BC18974B2200A75F76 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4E3244E718969B3A00E5ABEA /* LeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderViewController.h; sourceTree = "<group>"; };
 		4E3244E818969B3A00E5ABEA /* LeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderViewController.m; sourceTree = "<group>"; };
 		4E3244E918969B3A00E5ABEA /* LeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderViewController.xib; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 				4E50997218918E790073E53E /* EventKit.framework in Frameworks */,
 				4E50997318918E790073E53E /* EventKitUI.framework in Frameworks */,
 				4E50996F18918E660073E53E /* CoreMedia.framework in Frameworks */,
-				4E3244E318969AE400E5ABEA /* libGoogleAnalyticsServices.a in Frameworks */,
+				4E2EC1BF18974B2200A75F76 /* libGoogleAnalyticsServices.a in Frameworks */,
 				D8DE21D31740B042005BC015 /* CoreGraphics.framework in Frameworks */,
 				480E7CEF1742028A00BE61E4 /* AVFoundation.framework in Frameworks */,
 				E85C065917571BE400666373 /* AudioToolbox.framework in Frameworks */,
@@ -535,10 +535,10 @@
 				3879850817683D0F00A4D830 /* MessageUI.framework in Frameworks */,
 				380D62A8176096FD00DAFD00 /* Security.framework in Frameworks */,
 				38A30E371761DF6C00B36205 /* libsqlite3.dylib in Frameworks */,
-				4E3244E118969AE400E5ABEA /* libGoogleAdMobAds.a in Frameworks */,
+				4E2EC1BD18974B2200A75F76 /* libGoogleAdMobAds.a in Frameworks */,
 				38A30E351761DF5700B36205 /* Accounts.framework in Frameworks */,
 				D896B717175E0B530049C456 /* MediaPlayer.framework in Frameworks */,
-				4E3244E418969AE400E5ABEA /* libTestFlight.a in Frameworks */,
+				4E2EC1C018974B2200A75F76 /* libTestFlight.a in Frameworks */,
 				481E670C174B9BF300DAA8DB /* QuartzCore.framework in Frameworks */,
 				48D1B44917410B11001A4C86 /* SystemConfiguration.framework in Frameworks */,
 				48D1B44717410844001A4C86 /* StoreKit.framework in Frameworks */,
@@ -767,49 +767,49 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		4E3244C618969AE400E5ABEA /* GoogleAdMobAdsSdkiOS */ = {
+		4E2EC1A218974B2200A75F76 /* GoogleAdMobAdsSdkiOS */ = {
 			isa = PBXGroup;
 			children = (
-				4E3244C718969AE400E5ABEA /* GADAdMobExtras.h */,
-				4E3244C818969AE400E5ABEA /* GADAdNetworkExtras.h */,
-				4E3244C918969AE400E5ABEA /* GADAdSize.h */,
-				4E3244CA18969AE400E5ABEA /* GADBannerView.h */,
-				4E3244CB18969AE400E5ABEA /* GADBannerViewDelegate.h */,
-				4E3244CC18969AE400E5ABEA /* GADInterstitial.h */,
-				4E3244CD18969AE400E5ABEA /* GADInterstitialDelegate.h */,
-				4E3244CE18969AE400E5ABEA /* GADRequest.h */,
-				4E3244CF18969AE400E5ABEA /* GADRequestError.h */,
-				4E3244D018969AE400E5ABEA /* libGoogleAdMobAds.a */,
-				4E3244D118969AE400E5ABEA /* README.txt */,
+				4E2EC1A318974B2200A75F76 /* GADAdMobExtras.h */,
+				4E2EC1A418974B2200A75F76 /* GADAdNetworkExtras.h */,
+				4E2EC1A518974B2200A75F76 /* GADAdSize.h */,
+				4E2EC1A618974B2200A75F76 /* GADBannerView.h */,
+				4E2EC1A718974B2200A75F76 /* GADBannerViewDelegate.h */,
+				4E2EC1A818974B2200A75F76 /* GADInterstitial.h */,
+				4E2EC1A918974B2200A75F76 /* GADInterstitialDelegate.h */,
+				4E2EC1AA18974B2200A75F76 /* GADRequest.h */,
+				4E2EC1AB18974B2200A75F76 /* GADRequestError.h */,
+				4E2EC1AC18974B2200A75F76 /* libGoogleAdMobAds.a */,
+				4E2EC1AD18974B2200A75F76 /* README.txt */,
 			);
 			name = GoogleAdMobAdsSdkiOS;
 			path = "What'sThat/CustomClass/GoogleAdMobAdsSdkiOS";
 			sourceTree = "<group>";
 		};
-		4E3244D218969AE400E5ABEA /* GoogleAnalytics */ = {
+		4E2EC1AE18974B2200A75F76 /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				4E3244D318969AE400E5ABEA /* GAI.h */,
-				4E3244D418969AE400E5ABEA /* GAIDictionaryBuilder.h */,
-				4E3244D518969AE400E5ABEA /* GAIFields.h */,
-				4E3244D618969AE400E5ABEA /* GAILogger.h */,
-				4E3244D718969AE400E5ABEA /* GAITrackedViewController.h */,
-				4E3244D818969AE400E5ABEA /* GAITracker.h */,
-				4E3244D918969AE400E5ABEA /* libGoogleAnalyticsServices.a */,
+				4E2EC1AF18974B2200A75F76 /* GAI.h */,
+				4E2EC1B018974B2200A75F76 /* GAIDictionaryBuilder.h */,
+				4E2EC1B118974B2200A75F76 /* GAIFields.h */,
+				4E2EC1B218974B2200A75F76 /* GAILogger.h */,
+				4E2EC1B318974B2200A75F76 /* GAITrackedViewController.h */,
+				4E2EC1B418974B2200A75F76 /* GAITracker.h */,
+				4E2EC1B518974B2200A75F76 /* libGoogleAnalyticsServices.a */,
 			);
 			name = GoogleAnalytics;
 			path = "What'sThat/CustomClass/GoogleAnalytics";
 			sourceTree = "<group>";
 		};
-		4E3244DA18969AE400E5ABEA /* TestFlightSDK2.1.4 */ = {
+		4E2EC1B618974B2200A75F76 /* TestFlightSDK2.1.4 */ = {
 			isa = PBXGroup;
 			children = (
-				4E3244DB18969AE400E5ABEA /* libTestFlight.a */,
-				4E3244DC18969AE400E5ABEA /* README.md */,
-				4E3244DD18969AE400E5ABEA /* release_notes.md */,
-				4E3244DE18969AE400E5ABEA /* TestFlight+AsyncLogging.h */,
-				4E3244DF18969AE400E5ABEA /* TestFlight+ManualSessions.h */,
-				4E3244E018969AE400E5ABEA /* TestFlight.h */,
+				4E2EC1B718974B2200A75F76 /* libTestFlight.a */,
+				4E2EC1B818974B2200A75F76 /* README.md */,
+				4E2EC1B918974B2200A75F76 /* release_notes.md */,
+				4E2EC1BA18974B2200A75F76 /* TestFlight+AsyncLogging.h */,
+				4E2EC1BB18974B2200A75F76 /* TestFlight+ManualSessions.h */,
+				4E2EC1BC18974B2200A75F76 /* TestFlight.h */,
 			);
 			name = TestFlightSDK2.1.4;
 			path = "What'sThat/CustomClass/TestFlightSDK2.1.4";
@@ -948,9 +948,9 @@
 		D8DE21CD1740B042005BC015 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E3244C618969AE400E5ABEA /* GoogleAdMobAdsSdkiOS */,
-				4E3244D218969AE400E5ABEA /* GoogleAnalytics */,
-				4E3244DA18969AE400E5ABEA /* TestFlightSDK2.1.4 */,
+				4E2EC1A218974B2200A75F76 /* GoogleAdMobAdsSdkiOS */,
+				4E2EC1AE18974B2200A75F76 /* GoogleAnalytics */,
+				4E2EC1B618974B2200A75F76 /* TestFlightSDK2.1.4 */,
 				4EA758311893DFD400ABDD7E /* FacebookSDK.framework */,
 				092C24D818923DB400B8C403 /* AdColony.framework */,
 				4E50997018918E790073E53E /* EventKit.framework */,
@@ -1319,7 +1319,6 @@
 				D8108A9317434ADF005CFA76 /* hint3.png in Resources */,
 				D8108A9417434ADF005CFA76 /* quizCloudbg.png in Resources */,
 				D8108A9517434ADF005CFA76 /* score.png in Resources */,
-				4E3244E518969AE400E5ABEA /* README.md in Resources */,
 				D8108A9617434ADF005CFA76 /* star.png in Resources */,
 				D8108A9717434ADF005CFA76 /* textFieldBg.png in Resources */,
 				D8108A9817434ADF005CFA76 /* titleLevelBg.png in Resources */,
@@ -1341,6 +1340,7 @@
 				48D02F13174A2340006D6DD6 /* inappBg.png in Resources */,
 				48D02F14174A2340006D6DD6 /* okBtnBg-hint1.png in Resources */,
 				48D02F15174A2340006D6DD6 /* okBtnBg-hint2.png in Resources */,
+				4E2EC1C118974B2300A75F76 /* README.md in Resources */,
 				48D02F16174A2340006D6DD6 /* okBtnBg-hint3.png in Resources */,
 				48D02F17174A2340006D6DD6 /* radioNormal.png in Resources */,
 				48D02F18174A2340006D6DD6 /* radioSelected.png in Resources */,
@@ -1365,6 +1365,7 @@
 				481E6707174B995800DAA8DB /* CancelBtnBg-hint1@2x.png in Resources */,
 				D88C05B2174DD82B006CAE0C /* SVProgressHUD.bundle in Resources */,
 				D892DB7A175330B70032E635 /* muteBtn@2x.png in Resources */,
+				4E2EC1C218974B2300A75F76 /* release_notes.md in Resources */,
 				D892DB7C175330BC0032E635 /* muteBtn.png in Resources */,
 				E86899161754C5BB006D0B16 /* InfoViewController.xib in Resources */,
 				D88E1A5F1755BE9400BB5645 /* level.wav in Resources */,
@@ -1434,7 +1435,6 @@
 				D812790D176B4DFD00236E04 /* infoPlayLarge@2x.png in Resources */,
 				38E918A517C78BCD00298D1A /* btnRate.png in Resources */,
 				38E918A717C78BD600298D1A /* btnRate@2x.png in Resources */,
-				4E3244E618969AE400E5ABEA /* release_notes.md in Resources */,
 				382B6EBF17CDC02F00080519 /* LevelSetsViewController.xib in Resources */,
 				389CC56617D0A13F00C35710 /* LevelSetsCustomCell.xib in Resources */,
 				389CC56C17D0A4E900C35710 /* set1Background.png in Resources */,
@@ -1445,6 +1445,7 @@
 				389CC57517D0B17C00C35710 /* LevelSetsScore.png in Resources */,
 				389CC57817D0B18C00C35710 /* LevelSetsHome@2x.png in Resources */,
 				389CC57917D0B18C00C35710 /* LevelSetsScore@2x.png in Resources */,
+				4E2EC1BE18974B2200A75F76 /* README.txt in Resources */,
 				385895A517D5C85E0019023E /* set1EmptyBackground.png in Resources */,
 				385895A617D5C85E0019023E /* setOtherEmptyBackround.png in Resources */,
 				385895A917D5C86B0019023E /* set1EmptyBackground@2x.png in Resources */,
@@ -1459,7 +1460,6 @@
 				389E334B17D7569A000DEEF4 /* MyriadPro-Regular_2.otf in Resources */,
 				389E334C17D7569A000DEEF4 /* MyriadPro-Semibold_2.otf in Resources */,
 				38850AE0183E2CE10010BACC /* Icon-120.png in Resources */,
-				4E3244E218969AE400E5ABEA /* README.txt in Resources */,
 				4E509926189164240073E53E /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1631,6 +1631,10 @@
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAdMobAdsSdkiOS /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/TestFlightSDK2.1.4",
 				);
@@ -1696,6 +1700,10 @@
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Samples/GuessMe/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAdMobAdsSdkiOS\\ /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/GoogleAnalytics",
+					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/WhatsThat/CustomClass/TestFlightSDK2.1.4",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAdMobAdsSdkiOS /Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/GoogleAnalytics",
 					"/Volumes/Development/Development/FreelancerDropBox/Creative\\ Solutions/GuessMe/Github/GuessMe/Guess\\ This/What'sThat/CustomClass/TestFlightSDK2.1.4",
 				);
