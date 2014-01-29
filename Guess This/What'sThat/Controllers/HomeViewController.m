@@ -548,6 +548,65 @@
 
 - (IBAction)btnInviteFriendsClicked:(id)sender
 {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8", @"link",
+                                   @"Guess This", @"name",
+                                   @"I'm playing Guess This for iOS. Join my leaderboard!", @"message",
+                                   @"Guess This is a social puzzle game, just match the pictures to a word or phrase.", @"caption",nil];
+    
+
+    [FBWebDialogs presentFeedDialogModallyWithSession:[FBSession activeSession] parameters:params handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+        if (error) {
+            // Error launching the dialog or publishing a story.
+            NSLog(@"Error publishing story.");
+        } else
+        {
+          
+            if (result == FBWebDialogResultDialogNotCompleted)
+            {
+                // User clicked the "x" icon
+                NSLog(@"User canceled story publishing.");
+            }
+            else
+            {
+                // Handle the publish feed callback
+                NSDictionary *urlParams = [NSDictionary dictionary];
+                if (![urlParams valueForKey:@"post_id"])
+                {
+                    // User clicked the Cancel button
+                    NSLog(@"User canceled story publishing.");
+                }
+                else
+                {
+                    // User clicked the Share button
+                    NSString *msg = [NSString stringWithFormat:
+                                     @"Posted story, id: %@",
+                                     [urlParams valueForKey:@"post_id"]];
+                    NSLog(@"%@", msg);
+                    // Show the result in an alert
+                    [[[UIAlertView alloc] initWithTitle:@"Result"
+                                                message:msg
+                                               delegate:nil
+                                      cancelButtonTitle:@"OK!"
+                                      otherButtonTitles:nil]
+                     show];
+                }
+            }
+        }
+    }];
+//    if([FBDialogs canPresentOSIntegratedShareDialogWithSession:[FBSession activeSession]])
+//    {
+//        [FBDialogs presentOSIntegratedShareDialogModallyFrom:self initialText:@"Guess This" image:nil url:[NSURL URLWithString:@"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+//            
+//            if(error) {
+//                NSLog(@"Error: %@", error.description);
+//            } else {
+//                NSLog(@"Success!");
+//            }
+//        }];
+//    }
+
 /*
   FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
   params.link = [NSURL URLWithString:@"https://developers.facebook.com/ios"];
