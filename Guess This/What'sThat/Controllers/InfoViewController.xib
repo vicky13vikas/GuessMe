@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoViewController">
@@ -43,13 +43,13 @@
                     <rect key="frame" x="11" y="184" width="295" height="256"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <mutableString key="text">50 App Street Limited
+                    <string key="text">50 App Street Limited
 
 Guess This!
 
 The fun brain teasing quiz game which will get you testing your brain to the max! With over 150 levels of phrases, sayings and words, you will be scrambling to try remember what that saying is. Our little tip is to breakdown what you see....that's all! The answer is staring you in the face! (Literally!) Good lucky and happy guessing!
 
-We would like too thank you for downloading Guess This and hope you have hours of fun trying to work out our puzzles.If you can spare a minute, we would love to hear a review from you on the App Store, to show your support for the game please.If you have any questions, ideas, queries or trouble with the app, please contact </mutableString>
+We would like too thank you for downloading Guess This and hope you have hours of fun trying to work out our puzzles.If you can spare a minute, we would love to hear a review from you on the App Store, to show your support for the game please.If you have any questions, ideas, queries or trouble with the app, please contact </string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -106,12 +106,17 @@ We would like too thank you for downloading Guess This and hope you have hours o
                         <action selector="btnFacebookClicked:" destination="-1" eventType="touchUpInside" id="20"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.jpg" id="g4X-ug-xqf">
+                    <rect key="frame" x="128" y="43" width="60" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
+        <image name="Logo.jpg" width="800" height="600"/>
         <image name="backBtn.png" width="55" height="39"/>
         <image name="bg.png" width="320" height="460"/>
         <image name="btnReset.png" width="64" height="45"/>

@@ -92,10 +92,10 @@
     CGRect frame = btnPlay.frame;
     if (appDelegate.isIphone5) {
         
-        frame.origin.y = 217;
+        frame.origin.y = 187;
     }
     else{
-        frame.origin.y = 190;
+        frame.origin.y = 160;
     }
     btnPlay.frame = frame;
 }
@@ -548,8 +548,21 @@
 
 - (IBAction)btnInviteFriendsClicked:(id)sender
 {
+    /*
+    NSMutableDictionary *params =
+    [NSMutableDictionary dictionaryWithObjectsAndKeys:
+     @"An example parameter", @"description",
+     @"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8", @"link",
+     nil];
     
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                           parameters:params
+                                              handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {}
+     ];
+ */
+ 
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   FB_APPID, @"app_id",
                                    @"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8", @"link",
                                    @"Guess This", @"name",
                                    @"I'm playing Guess This for iOS. Join my leaderboard!", @"message",
@@ -595,108 +608,7 @@
             }
         }
     }];
-//    if([FBDialogs canPresentOSIntegratedShareDialogWithSession:[FBSession activeSession]])
-//    {
-//        [FBDialogs presentOSIntegratedShareDialogModallyFrom:self initialText:@"Guess This" image:nil url:[NSURL URLWithString:@"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
-//            
-//            if(error) {
-//                NSLog(@"Error: %@", error.description);
-//            } else {
-//                NSLog(@"Success!");
-//            }
-//        }];
-//    }
-
-/*
-  FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
-  params.link = [NSURL URLWithString:@"https://developers.facebook.com/ios"];
-  params.picture = [NSURL URLWithString:@"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png"];
-  params.name = @"Facebook SDK for iOS";
-  params.caption = @"Build great apps";
   
-  [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-    if(error) {
-      NSLog(@"Error: %@", error.description);
-    } else {
-      NSLog(@"Success!");
-    }
-  }];
-  
-*/
- 
-  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 @"https://itunes.apple.com/us/app/guess-this!/id657293868?mt=8", @"link",
-                                 @"Guess This", @"name",
-//                                 @"https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/t1/q71/1175465_1485709428322583_1129674368_n.jpg",@"picture",
-                                 @"I'm playing Guess This for iOS. Join my leaderboard!", @"message",
-                                 @"Guess This is a social puzzle game, just match the pictures to a word or phrase.", @"caption",nil];
-  
-  FBRequest* req = [FBRequest requestWithGraphPath:[@"/100006506190818/feed?access_token=" stringByAppendingString:[[[FBSession activeSession] accessTokenData] accessToken]] parameters:params HTTPMethod:@"POST"];
-  [req startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-   {
-     if (!error)
-     {
-//       [self.navigationController popViewControllerAnimated:YES];
-     }
-   }];
-  
-/*
-    FBFriendPickerViewController *fbFriendPicker = [[FBFriendPickerViewController alloc] init];
-    fbFriendPicker.title = @"Select Friends";
-    fbFriendPicker.session = [FBSession activeSession];
-    fbFriendPicker.delegate = self;
-    fbFriendPicker.allowsMultipleSelection = YES;
-    [fbFriendPicker loadData];
-    [fbFriendPicker presentModallyFromViewController:self animated:YES handler:nil];
-    selectedFBFriends = nil;
- */
 }
 
-- (void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker
-{
-    selectedFBFriends = friendPicker.selection;
-}
-
-- (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
-                 shouldIncludeUser:(id <FBGraphUser>)user
-{
-    return YES;
-}
-
-- (void)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
-                       handleError:(NSError *)error
-{
-    
-}
-
-- (void)facebookViewControllerCancelWasPressed:(id)sender
-{
-    
-}
-
-- (void)facebookViewControllerDoneWasPressed:(id)sender
-{
-    if(selectedFBFriends.count > 0)
-        [self postToFriendsWall];
-}
-
--(void)postToFriendsWall
-{
-    for (int i = 0; i<selectedFBFriends.count; i++)
-    {
-        NSString *friendID = [selectedFBFriends[i] valueForKey:@"id"];
-        
-        NSMutableDictionary* params =   [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                         @"http://geektechnolab.com/", @"link",
-                                         @"Try out this awesome game", @"message",
-                                         nil];
-        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@/feed", friendID] parameters:params HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            if(error)
-            {
-                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:@"Error Posting on Walls" delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
-                [errorAlert show];
-            }
-        }];
-    }
-}
 @end
