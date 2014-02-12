@@ -137,6 +137,14 @@ static NSString *const kTrackingId = @"UA-43130151-5";  //Google Analytics
         [objShareKit logout];
     }
  */
+    
+    [self removefacebook];
+}
+- (void)removefacebook
+{
+    [[FBSession activeSession] closeAndClearTokenInformation];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:FB_USER_NAME];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:FB_USER_ID];
 }
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
