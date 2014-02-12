@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "LeaderViewController.h"
 
-@interface HomeViewController () <FBFriendPickerDelegate>
+@interface HomeViewController () <FBFriendPickerDelegate, IAPHelperDelegate>
 {
     BOOL isFacebookLoggedin;
     BOOL bHaveRequestedPublishPermissions;
@@ -632,6 +632,109 @@
       }
     }];
   }
+}
+
+
+#pragma -mark InApp Purchase and IAPHelperDelegate
+
+- (IBAction)removeAdsClicked:(id)sender
+{
+    [self buyRemoveAds];
+}
+
+-(void)buyRemoveAds
+{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    
+    SKProduct *productToBuy;
+    NSLog(@"appDelegate.arrayProduct::%@",[appDelegate.arrayProduct description]);
+    if([appDelegate.arrayProduct count]>0)
+    {
+        for (SKProduct *product in appDelegate.arrayProduct)
+        {
+            if ([product.productIdentifier isEqualToString:PRODUCT_ID_REMOVE_ADS]) {
+                productToBuy = product;
+                break;
+            }
+        }
+        
+        RageIAPHelper *objRage = [RageIAPHelper sharedInstance];
+        objRage._delegate = self;
+        [objRage buyProduct:productToBuy];
+    }
+    else
+    {
+        [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            if (success)
+            {
+                SKProduct *productToBuy;
+                if([products count]>0)
+                {
+                    for (SKProduct *product in appDelegate.arrayProduct)
+                    {
+                        if ([product.productIdentifier isEqualToString:PRODUCT_ID_REMOVE_ADS]) {
+                            productToBuy = product;
+                            break;
+                        }
+                    }
+                    
+                    RageIAPHelper *objRage = [RageIAPHelper sharedInstance];
+                    objRage._delegate = self;
+                    [objRage buyProduct:productToBuy];
+                }
+            }
+            else
+            {
+                [SVProgressHUD dismiss];
+                
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Could not connect to store." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+                [alert show];
+                
+            }
+        }];
+        
+    }
+}
+
+-(void)completeTransaction:(SKPaymentTransaction *)transaction
+{
+    [SVProgressHUD dismiss];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction Successfull." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [alert show];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
+    
+//    [self goToNextLevel];
+}
+
+-(void)restoreTransaction:(SKPaymentTransaction *)transaction
+{
+    [SVProgressHUD dismiss];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction Restored." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [alert show];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:USERDEFAULTS_IS_REMOVE_ADS_PURCHASED];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
+    
+//    [self goToNextLevel];
+}
+
+-(void)failedTransaction:(SKPaymentTransaction *)transaction
+{
+    [SVProgressHUD dismiss];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:ALERT_TITLE message:@"Transaction failed." delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [alert show];
+    
+    if (appDelegate.adBanner) {
+        [appDelegate.adBanner removeFromSuperview];
+        appDelegate.adBanner = nil;
+    }
+    
+//    [self goToNextLevel];
 }
 
 @end
